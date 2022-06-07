@@ -37,19 +37,21 @@ public class BinaryTree {
 
     // Delete existing node 
     public synchronized void deleteNode(Integer d) {
-        boolean nodeFound = false;
+        boolean nodeDeleted = false;
         Node ptr = root;
-        while (nodeFound != true) {
+        while (nodeDeleted != true) {
             // Node is found 
             if (d == ((Integer)ptr.getData()).intValue()) {
                 // Leaf node 
                 if ((ptr.left == null) && (ptr.right == null)) {
                     ptr = null;
+                    nodeDeleted = true;
                 }
                 // One child (left) OR have both children 
                 else if ((ptr.right == null) || ((ptr.left != null) && (ptr.right != null))) {
                     ptr = ptr.left;
                     ptr.left = null;
+                    
                 }
                 // One child (right)
                 else if (ptr.left == null) {

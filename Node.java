@@ -52,6 +52,12 @@ public class Node {
         if ((left == null) && (right == null)) {
             data = null;
         }
+        // One child (left) OR have both children 
+        else if ((right == null) || ((left != null) && (right != null))) {
+            data = left.data;
+            left = null;
+        }
+
     }
 
     // Get right child 
