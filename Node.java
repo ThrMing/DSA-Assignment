@@ -50,7 +50,7 @@ public class Node {
     public synchronized void remove() {
         // Leaf node 
         if ((left == null) && (right == null)) {
-            
+            data = null;
         }
     }
 

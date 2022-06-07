@@ -3,7 +3,6 @@
 public class BSTtest {
     public static void main( String args[] ) {
         BinaryTree tree = new BinaryTree();
-        int value;
 
         System.out.println("Inserting the following values: ");
 
