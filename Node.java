@@ -50,14 +50,18 @@ public class Node {
     public synchronized void remove() {
         // Leaf node 
         if ((left == null) && (right == null)) {
-            data = null;
+            data = 0;
         }
         // One child (left) OR have both children 
         else if ((right == null) || ((left != null) && (right != null))) {
             data = left.data;
-            left = null;
+            left = left.left;
         }
-
+        // One child (right)
+        else if (left == null) {
+            data = right.data;
+            right = right.right;
+        }
     }
 
     // Get right child 

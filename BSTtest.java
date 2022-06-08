@@ -11,9 +11,12 @@ public class BSTtest {
         tree.insertNode(8);
         tree.insertNode(20);
         tree.insertNode(23);
+        tree.deleteNode(4);
+        tree.deleteNode(12);
 
-        System.out.println("Search for 4: " + tree.searchNode(5));
-
+        System.out.println(tree.searchNode(12));
+        System.out.println(tree.searchNode(4));
+        System.out.println(tree.searchNode(8));
 
 
     }

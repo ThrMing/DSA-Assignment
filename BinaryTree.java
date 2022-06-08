@@ -18,12 +18,11 @@ public class BinaryTree {
     }
 
     // Search node 
-    public synchronized Object searchNode(Integer d) {
+    public synchronized Boolean searchNode(Integer d) {
         Node ptr = root;
         while (ptr != null) {
             if (d == ((Integer)ptr.getData()).intValue()) {
-                return ptr.data; 
-
+                return true; 
             }
             if (d < ((Integer)ptr.getData()).intValue()) {
                 ptr = ptr.getLeft();
@@ -32,32 +31,16 @@ public class BinaryTree {
                 ptr = ptr.getRight();
             }
         }
-        return null;
+        return false;
     }
 
     // Delete existing node 
     public synchronized void deleteNode(Integer d) {
-        boolean nodeDeleted = false;
         Node ptr = root;
-        while (nodeDeleted != true) {
+        while (ptr != null) {
             // Node is found 
             if (d == ((Integer)ptr.getData()).intValue()) {
-                // Leaf node 
-                if ((ptr.left == null) && (ptr.right == null)) {
-                    ptr = null;
-                    nodeDeleted = true;
-                }
-                // One child (left) OR have both children 
-                else if ((ptr.right == null) || ((ptr.left != null) && (ptr.right != null))) {
-                    ptr = ptr.left;
-                    ptr.left = null;
-                    
-                }
-                // One child (right)
-                else if (ptr.left == null) {
-                    ptr = ptr.right;
-                    ptr.right = null;
-                }
+                ptr.remove();
             }
 
             // If Node is smaller, go left child 
