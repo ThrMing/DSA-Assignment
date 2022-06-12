@@ -69,8 +69,8 @@ public class BinaryTree {
             }
 
             System.out.print(node.data + "\n");
-            displayer(node.left, indent, false); // if left = false
-            displayer(node.right, indent, true); // if right = true
+            displayer(node.left, indent, false);
+            displayer(node.right, indent, true);
         }
 
     }
