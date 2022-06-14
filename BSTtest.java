@@ -79,15 +79,15 @@ public class BSTtest {
             }
 
             else if (userInput == 2) {
-                // tree.preorderTraversal();
+                tree.preorderTraversal();
             }
 
             else if (userInput == 3) {
-                // tree.inorderTraversal();
+                tree.inorderTraversal();
             }
 
             else if (userInput == 4) {
-                // tree.postorderTraversal();
+                tree.postorderTraversal();
             }
 
             else if (userInput == 5) {
