@@ -80,4 +80,49 @@ public class BinaryTree {
         displayer(root, "", true);
     }
 
+    // Preorder Traversal
+    public void preorderTraversal() {
+        preorderHelper(root);
+    }
+
+    // Recursive method to perform preorder traversal
+    private void preorderHelper(Node node) {
+        if (node == null)
+            return;
+
+        System.out.print(node.data + " - ");
+        preorderHelper(node.left);
+        preorderHelper(node.right);
+    }
+
+    // Inorder Traversal
+    public void inorderTraversal() {
+        inorderHelper(root);
+    }
+
+    // Recursive method to perform inorder traversal
+    private void inorderHelper(Node node) {
+        if (node == null)
+            return;
+
+        inorderHelper(node.left);
+        System.out.print(node.data + " - ");
+        inorderHelper(node.right);
+    }
+
+    // Postorder Traversal
+    public void postorderTraversal() {
+        postorderHelper(root);
+    }
+
+    // Recursive method to perform postorder traversal
+    private void postorderHelper(Node node) {
+        if (node == null)
+            return;
+
+        postorderHelper(node.left);
+        postorderHelper(node.right);
+        System.out.print(node.data + " - ");
+    }
+
 }
