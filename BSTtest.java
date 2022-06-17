@@ -4,7 +4,7 @@ public class BSTtest {
     public static void main(String args[]) {
         Scanner input = new Scanner(System.in);
         int userInput, value;
-        BinaryTree tree = new BinaryTree();
+        BinaryTree t = new BinaryTree();
 
         do {
             System.out.println("");
@@ -38,21 +38,22 @@ public class BSTtest {
                             System.out.print("Insert value(0 to exit): ");
                             value = input.nextInt();
                             if (value != 0) {
-                                tree.insertNode(value);
+                                t.insertNode(value);
 
                             }
                         } while (value != 0);
                         System.out.println("");
-                        tree.print_tree();
+                        t.displayer(t.root, "", true);
+
                     }
 
                     // Delete
                     else if (userInput == 2) {
                         System.out.print("Delete value: ");
                         value = input.nextInt();
-                        tree.deleteNode(value);
+                        t.deleteNode(value);
                         System.out.println("");
-                        tree.print_tree();
+                        t.displayer(t.root, "", true);
 
                     }
 
@@ -62,7 +63,7 @@ public class BSTtest {
                             System.out.print("Search value(0 to exit): ");
                             value = input.nextInt();
                             if (value != 0) {
-                                System.out.println(tree.searchNode(value));
+                                System.out.println(t.searchNode(value));
                             }
                         } while (value != 0);
 
@@ -79,20 +80,20 @@ public class BSTtest {
             }
 
             else if (userInput == 2) {
-                tree.preorderTraversal();
+                t.preorderTraversal();
             }
 
             else if (userInput == 3) {
-                tree.inorderTraversal();
+                t.inorderTraversal();
             }
 
             else if (userInput == 4) {
-                tree.postorderTraversal();
+                t.postorderTraversal();
             }
 
             else if (userInput == 5) {
                 System.out.println("");
-                tree.print_tree();
+                t.displayer(t.root, "", true);
             }
 
             else if (userInput == 6) {

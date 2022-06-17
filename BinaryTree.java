@@ -8,22 +8,22 @@ public class BinaryTree {
     }
 
     // Insert new node
-    public synchronized void insertNode(Integer d) {
+    public synchronized void insertNode(Integer value) {
         if (root == null) {
-            root = new Node(d);
+            root = new Node(value);
         } else {
-            root.insert(d);
+            root.insert(value);
         }
     }
 
     // Search node
-    public synchronized Boolean searchNode(Integer d) {
+    public synchronized Boolean searchNode(Integer value) {
         Node ptr = root;
         while (ptr != null) {
-            if (d == ((Integer) ptr.getData()).intValue()) {
+            if (value == ((Integer) ptr.getData()).intValue()) {
                 return true;
             }
-            if (d < ((Integer) ptr.getData()).intValue()) {
+            if (value < ((Integer) ptr.getData()).intValue()) {
                 ptr = ptr.getLeft();
             } else {
                 ptr = ptr.getRight();
@@ -33,16 +33,16 @@ public class BinaryTree {
     }
 
     // Delete existing node
-    public synchronized void deleteNode(Integer d) {
+    public synchronized void deleteNode(Integer value) {
         Node ptr = root;
         while (ptr != null) {
             // Node is found
-            if (d == ((Integer) ptr.getData()).intValue()) {
+            if (value == ((Integer) ptr.getData()).intValue()) {
                 ptr.remove();
             }
 
             // If Node is smaller, go left child
-            if (d < ((Integer) ptr.getData()).intValue()) {
+            if (value < ((Integer) ptr.getData()).intValue()) {
                 ptr = ptr.getLeft();
             }
             // If Node is larger, go right child
@@ -52,32 +52,36 @@ public class BinaryTree {
         }
     }
 
-    public void displayer(Node node, String indent, boolean last) {
-
-        if (root == null) {
+    // To display the tree
+    public void displayer(Node node, String spacing, boolean check) {
+        Node ptr = root;
+        // Check if the root is empty
+        if (ptr == null) {
             System.out.println("The Tree is empty");
         }
+        // Check if the null is empty
+        // Making sure that the root has no spacing when printed out if it is empty
         if (node != null) {
-            System.out.print(indent);
-            if (last) {
+            System.out.print(spacing);
+            // if "check" is true, check node.right in the tree and print
+            if (check) {
                 System.out.print("R----");
-                indent += "|    ";
+                spacing += "|    ";
+                System.out.print(node.data + "\n");
 
+                // if "check" is false, check node.left in the tree and print
             } else {
                 System.out.print("L----");
-                indent += "|    ";
+                spacing += "|    ";
+                System.out.print(node.data + "\n");
+
             }
 
-            System.out.print(node.data + "\n");
-            displayer(node.left, indent, false);
-            displayer(node.right, indent, true);
+            // Recursion, each time check left and then right
+            displayer(node.left, spacing, false);
+            displayer(node.right, spacing, true);
         }
 
-    }
-
-    public void print_tree() {
-        // calling displayer from TreeNode
-        displayer(root, "", true);
     }
 
     // Preorder Traversal
