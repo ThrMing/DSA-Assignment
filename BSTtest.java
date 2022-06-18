@@ -34,6 +34,9 @@ public class BSTtest {
 
                     // Insert
                     if (userInput == 1) {
+                        asterisk();
+                        System.out.println("\t\t    Insertion");
+                        asterisk();
                         do {
                             System.out.print("Insert value(0 to exit): ");
                             value = input.nextInt();
@@ -49,6 +52,9 @@ public class BSTtest {
 
                     // Delete
                     else if (userInput == 2) {
+                        asterisk();
+                        System.out.println("\t\t    Deletion");
+                        asterisk();
                         System.out.print("Delete value: ");
                         value = input.nextInt();
                         t.deleteNode(value);
@@ -59,6 +65,9 @@ public class BSTtest {
 
                     // Search
                     else if (userInput == 3) {
+                        asterisk();
+                        System.out.println("\t\t    Searching");
+                        asterisk();
                         do {
                             System.out.print("Search value(0 to exit): ");
                             value = input.nextInt();
@@ -80,14 +89,23 @@ public class BSTtest {
             }
 
             else if (userInput == 2) {
+                asterisk();
+                System.out.println("\t\t    PreOrder");
+                asterisk();
                 t.preorderTraversal();
             }
 
             else if (userInput == 3) {
+                asterisk();
+                System.out.println("\t\t    InOrder");
+                asterisk();
                 t.inorderTraversal();
             }
 
             else if (userInput == 4) {
+                asterisk();
+                System.out.println("\t\t    PostOrder");
+                asterisk();
                 t.postorderTraversal();
             }
 
