@@ -59,7 +59,7 @@ public class BinaryTree {
         if (ptr == null) {
             System.out.println("The Tree is empty");
         }
-        // Check if the null is empty
+        // Check if the node is empty
         // Making sure that the root has no spacing when printed out if it is empty
         if (node != null) {
             System.out.print(spacing);
