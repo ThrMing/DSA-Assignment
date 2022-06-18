@@ -57,7 +57,7 @@ public class BinaryTree {
         Node ptr = root;
         // Check if the root is empty
         if (ptr == null) {
-            System.out.println("The Tree is empty");
+            System.out.println("\t\tThe Tree is empty");
         }
 
         // Check if the node is empty

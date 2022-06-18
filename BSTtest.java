@@ -5,35 +5,39 @@ public class BSTtest {
         Scanner input = new Scanner(System.in);
         int userInput, value;
         BinaryTree t = new BinaryTree();
+        asterisk();
+        System.out.println("\t\tBinary Search Tree");
+        asterisk();
 
         do {
-            System.out.println("");
-            asterisk();
-            System.out.println("\t\tBinary Search Tree");
-            asterisk();
-            System.out.println("1. Play");
+            // asterisk();
+            // System.out.println("\t\tBinary Search Tree");
+            // asterisk();
+            System.out.println("\n1. Play");
             System.out.println("2. Preorder");
             System.out.println("3. Inorder");
             System.out.println("4. Postorder");
             System.out.println("5. Display Tree");
             System.out.println("6. Exit");
-            System.out.print("Choose 1 ~ 6: ");
+            System.out.print("\nChoose 1 ~ 6: ");
             userInput = input.nextInt();
 
             if (userInput == 1) {
+                System.out.println();
+                asterisk();
+                System.out.println("\t\t     Welcome");
+                asterisk();
                 while (userInput != 4) {
-                    System.out.println("");
-                    asterisk();
-                    System.out.println("\t\t     Welcome");
-                    asterisk();
-                    System.out.println("1. Insert");
+                    System.out.println("\n1. Insert");
                     System.out.println("2. Delete");
                     System.out.println("3. Search");
                     System.out.println("4. Exit");
+                    System.out.print("\nChoose 1 ~ 4: ");
                     userInput = input.nextInt();
 
                     // Insert
                     if (userInput == 1) {
+                        System.out.println();
                         asterisk();
                         System.out.println("\t\t    Insertion");
                         asterisk();
@@ -46,12 +50,17 @@ public class BSTtest {
                             }
                         } while (value != 0);
                         System.out.println("");
+                        asterisk();
+                        System.out.println();
                         t.displayer(t.root, "", true);
+                        System.out.println();
+                        asterisk();
 
                     }
 
                     // Delete
                     else if (userInput == 2) {
+                        System.out.println();
                         asterisk();
                         System.out.println("\t\t    Deletion");
                         asterisk();
@@ -59,12 +68,15 @@ public class BSTtest {
                         value = input.nextInt();
                         t.deleteNode(value);
                         System.out.println("");
+                        asterisk();
                         t.displayer(t.root, "", true);
+                        asterisk();
 
                     }
 
                     // Search
                     else if (userInput == 3) {
+                        System.out.println();
                         asterisk();
                         System.out.println("\t\t    Searching");
                         asterisk();
@@ -75,51 +87,79 @@ public class BSTtest {
                                 System.out.println(t.searchNode(value));
                             }
                         } while (value != 0);
-
+                        System.out.println();
+                        asterisk();
+                        System.out.println("\t\t     Welcome");
+                        asterisk();
                     }
 
                     else if (userInput == 4) {
-                        System.out.println("Returning to main page");
+                        System.out.println();
+                        asterisk();
+                        System.out.println("\t\tBinary Search Tree");
+                        asterisk();
                     }
 
                     else {
-                        System.out.println("input 1 to 4 only");
+                        System.out.println();
+                        asterisk();
+                        System.out.println("\t Incorrect Input, Please Retry");
+                        asterisk();
                     }
                 }
             }
 
             else if (userInput == 2) {
+                System.out.println();
                 asterisk();
                 System.out.println("\t\t    PreOrder");
                 asterisk();
+                System.out.println();
                 t.preorderTraversal();
+                System.out.println();
             }
 
             else if (userInput == 3) {
+                System.out.println();
                 asterisk();
                 System.out.println("\t\t    InOrder");
                 asterisk();
+                System.out.println();
                 t.inorderTraversal();
+                System.out.println();
             }
 
             else if (userInput == 4) {
+                System.out.println();
                 asterisk();
                 System.out.println("\t\t    PostOrder");
                 asterisk();
+                System.out.println();
                 t.postorderTraversal();
+                System.out.println();
             }
 
             else if (userInput == 5) {
                 System.out.println("");
+                asterisk();
+                System.out.println();
                 t.displayer(t.root, "", true);
+                System.out.println();
+                asterisk();
             }
 
             else if (userInput == 6) {
-                System.out.println("Exiting");
+                System.out.println();
+                asterisk();
+                System.out.println("\t\t   Thank you");
+                asterisk();
             }
 
             else {
-                System.out.println("Input 1 to 6 only");
+                System.out.println();
+                asterisk();
+                System.out.println("\t Incorrect Input, Please Retry");
+                asterisk();
             }
 
         } while (userInput != 6);
