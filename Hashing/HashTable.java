@@ -1,9 +1,41 @@
-class HashTable
+import java.util.Arrays;
+import java.util.LinkedList;
+
+public class HashTable<K, V>
 {
-    int[] arr;
-    int capacity;
-    int count;
- 
+	 private class ListNode {
+	    ListNode next;
+		public K key;
+		public V value; 
+	}
+	
+	private ListNode[] table;
+	private K key;
+	private V value;
+	private int hash;
+	private int capacity;
+	private int[] arr;
+	private int count;
+	private ListNode list;
+    	 
+
+  public HashTable(K key, V value) {
+    this.key = key;
+    this.value = value;
+    this.hash = key.hashCode();
+  }
+  
+  public boolean equals(HashTable<K, V> other) {
+	    if (hash != other.hash) return false;
+	    return key.equals(other.key);
+	  }
+
+	  @Override
+	  public String toString() {
+	    return key + " => " + value;
+	  }
+	
+
     /** constructor **/
    public HashTable(int capacity)
     {
@@ -19,50 +51,72 @@ class HashTable
        return count == 0;
    }
    
-   public synchronized boolean contains(int ele) {
-       if (ele == null) {
-           throw new NullPointerException();
-       }
-
-       Entry<?,?> tab[] = table;
-       for (int i = tab.length ; i-- > 0 ;) {
-           for (Entry<?,?> e = tab[i] ; e != null ; e = e.next) {
-               if (e.value.equals(ele)) {
-                   return true;
-               }
-           }
-       }
-       return false;
+   public void insert(K key, V value) {
+    int bucket = hash(key); 
+    ListNode list = table[bucket]; 
+    while (list != null) {
+       if (list.key.equals(key))
+          break;
+       list = list.next; 
+    }
    }
-    /** function to insert **/
-    public void insert(int ele)
-    {
-        arr[ele % capacity] = ele;
+    
+   public void contains(K key, V value) {
+	int bucket = hash(key); 
+    ListNode list = table[bucket];  
+    while (list != null) {
+       if (list.key.equals(key))
+          return;
+       list = list.next;  
     }
- 
-    /** function to clear **/
-    public void clear()
-    {
-        arr = new int[capacity];
-    }
- 
-    /** function contains **/
-    public boolean contains(int ele)
-    {
-        return arr[ele % capacity] == ele;
-    }
- 
-    /** function to delete **/
-    public void delete(int ele)
-    {
-        if (arr[ele % capacity] == ele)
-            arr[ele % capacity] = 0;
-        else
-            System.out.println("\nError : Element not found\n");
-        	System.out.println("Hashtable contains: " + ele);
+    return;  
+ }
 
+ public void remove(K key, V value) { 
+	int bucket = hash(key); 
+    list = table[bucket]; 
+    if (table[bucket] == null) {
+       return; 
     }
+    if (table[bucket].key.equals(key)) {
+       table[bucket] = table[bucket].next;
+       count--; 
+       return;
+    }
+     
+    ListNode prev = table[bucket];  
+    ListNode curr = prev.next;  
+    while (curr != null && ! curr.key.equals(key)) {
+       curr = curr.next;
+       prev = curr;
+    }
+     
+    if (curr != null) {
+       prev.next = curr.next;
+       count--;  // Record new number of items in the table.
+    }
+ }
 
+ public boolean containsKey(Object key) {
+    int bucket = hash(key);  
+    ListNode list = table[bucket]; 
+    while (list != null) {
+       if (list.key.equals(key))
+          return true;
+       list = list.next;
+    }
+    return false;
+ }
+ 
+ public void clear() {
+	    Arrays.fill(table, null);
+	    int size = 0;
+	  }
+
+ private int hash(Object key) {
+    return (Math.abs(key.hashCode())) % table.length;
+ }
+ 
     /** Function to generate next prime number >= n **/
     private static int nextPrime( int n )
     {
@@ -94,6 +148,4 @@ class HashTable
             System.out.print(arr[i] +" ");
         System.out.println();
     }
-  
-
 }
