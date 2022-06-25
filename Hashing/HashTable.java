@@ -1,48 +1,47 @@
 import java.util.Arrays;
 import java.util.LinkedList;
 
-public class HashTable<K, V>
+public class HashTable
 {
+	int size = 64;
+	HashTable hashTable[] = new HashTable[size];
+
 	 private class ListNode {
 	    ListNode next;
-		public K key;
-		public V value; 
+	    String key;
+        String value;
 	}
 	
 	private ListNode[] table;
-	private K key;
-	private V value;
 	private int hash;
 	private int capacity;
 	private int[] arr;
 	private int count;
-	private ListNode list;
+	private ListNode temp;
+	private String key;
+	private String value;
     	 
 
-  public HashTable(K key, V value) {
-    this.key = key;
-    this.value = value;
-    this.hash = key.hashCode();
+  public HashTable() {
+	  table = new ListNode[64];
   }
   
-  public boolean equals(HashTable<K, V> other) {
+  public HashTable(int initialSize) {
+      // Create a hash table with a specified initial size.
+      // Precondition: initalSize > 0.
+    table = new ListNode[initialSize];
+ }
+  
+  public boolean equals(HashTable other) {
 	    if (hash != other.hash) return false;
 	    return key.equals(other.key);
 	  }
 
-	  @Override
-	  public String toString() {
-	    return key + " => " + value;
-	  }
-	
+  @Override
+  public String toString() {
+      return "[" + key + ", " + value + "]";
+  }
 
-    /** constructor **/
-   public HashTable(int capacity)
-    {
-        this.capacity = nextPrime(capacity);
-        arr = new int[this.capacity];
-    }
-    
    public synchronized int size() {
        return count;
    }
@@ -51,30 +50,47 @@ public class HashTable<K, V>
        return count == 0;
    }
    
-   public void insert(K key, V value) {
-    int bucket = hash(key); 
+   public void insert(String key, String value) {
+	HashTable<String, String> table = new HashTable<>(key, value);
+    int bucket = getHash(key); 
     ListNode list = table[bucket]; 
-    while (list != null) {
-       if (list.key.equals(key))
-          break;
-       list = list.next; 
+    if(table[hash] == null) {
+    	table[hash] = hashTable;
+    	return;
     }
-   }
-    
-   public void contains(K key, V value) {
-	int bucket = hash(key); 
-    ListNode list = table[bucket];  
-    while (list != null) {
-       if (list.key.equals(key))
-          return;
-       list = list.next;  
-    }
-    return;  
- }
+    HashTable<String,String> temp = table[hash];
+        while(temp.next != null) {
+        	 if(temp.key.equalsIgnoreCase(key)){
+                 temp.value = value;
+                 return;
+             }
+             temp = temp.next;
+         }
+         temp.next = table;
+     }
 
- public void remove(K key, V value) { 
-	int bucket = hash(key); 
-    list = table[bucket]; 
+   public String get(String key) {
+	   int bucket = getHash(key);
+	   ListNode list = table[bucket]; 
+	   if(list != null) {
+		   HashTable.ListNode temp = table[hash];
+           while (!temp.key.equals(key)
+        		   && temp.next != null) {
+        	   temp = temp.next; 
+       }
+           return temp.value;
+   }
+	   return null;
+}
+
+           
+private int getHash(String key) {
+    return key.hashCode() % initialSize;
+}
+
+ public void remove(String key) { 
+	int bucket = getHash(key); 
+	ListNode list = table[bucket]; 
     if (table[bucket] == null) {
        return; 
     }
@@ -97,48 +113,27 @@ public class HashTable<K, V>
     }
  }
 
- public boolean containsKey(Object key) {
-    int bucket = hash(key);  
-    ListNode list = table[bucket]; 
-    while (list != null) {
-       if (list.key.equals(key))
-          return true;
-       list = list.next;
-    }
-    return false;
- }
- 
+ public boolean containsKey(String key) {
+		int bucket = getHash(key); 
+	    ListNode list = table[bucket];  
+	    while(list != null) {
+	        if (temp.key.equals(key))
+	        	return true;
+	        temp = temp.next;
+	    }
+	    return false;
+	}
+
  public void clear() {
 	    Arrays.fill(table, null);
 	    int size = 0;
 	  }
 
- private int hash(Object key) {
+ private int hash(String key, String value) {
     return (Math.abs(key.hashCode())) % table.length;
  }
- 
-    /** Function to generate next prime number >= n **/
-    private static int nextPrime( int n )
-    {
-        if (n % 2 == 0)
-            n++;
-        for (; !isPrime(n); n += 2);
- 
-        return n;
-    }
- 
-    /** Function to check if given number is prime **/
-    private static boolean isPrime(int n)
-    {
-        if (n == 2 || n == 3)
-            return true;
-        if (n == 1 || n % 2 == 0)
-            return false;
-        for (int i = 3; i * i <= n; i += 2)
-            if (n % i == 0)
-                return false;
-        return true;
-    }
+  
+     
  
     /** function to print hash table **/
     public void printTable()
