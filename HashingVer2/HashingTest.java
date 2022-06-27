@@ -1,4 +1,5 @@
 package HashingVer2;
+
 import java.util.Scanner;
 import HashingVer2.Hashing.DataStructures;
 
@@ -33,8 +34,14 @@ public class HashingTest {
                 do {
                     System.out.print("Insert(0 to exit) : "); // value = user input while key =index
                     value = input.next();
-
+                    if (!(value.equals("0"))) {
+                        linearHash.insertLinearProb(value);
+                        doubleHash.insertDoubleHash(value);
+                        sepchain.insertSepChain(value);
+                        linearHash.printTable();
+                    }
                 } while (!(value.equals("0")));
+
             }
 
             // Searching

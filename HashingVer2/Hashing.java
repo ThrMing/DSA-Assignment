@@ -6,12 +6,13 @@ public class Hashing {
     String[] DoubleHashTable;
     String[] LinearProbTable;
     LinkedList<String>[] SCHashTable;
-    int arrSize = 0;
+    int arrSize;
+    int count = 0;
 
     // Constructor
 
     public Hashing(int n, DataStructures ds) {
-        n = arrSize;
+        arrSize = n;
         switch (ds) {
             case LinearProb:
                 LinearProbTable = new String[n];
@@ -51,7 +52,7 @@ public class Hashing {
                 LinearProbTable[index] = w;
                 notStored = false;
             } else {
-                hashValue++;
+                index++;
             }
         }
     }
@@ -98,5 +99,18 @@ public class Hashing {
             hashValue += w.charAt(x) * 31 ^ (w.length());
         }
         return hashValue;
+    }
+
+    public void printTable() {
+        System.out.println("Hash Table: ");
+        for (int i = 0; i < LinearProbTable.length; i++) {
+            System.out.print(LinearProbTable[i] + " ");
+            count++;
+            if (count == 10) {
+                count = 0;
+                System.out.println();
+            }
+        }
+        System.out.println();
     }
 }
