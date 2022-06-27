@@ -3,40 +3,26 @@ package HashingVer2;
 import java.util.LinkedList;
 
 public class Hashing {
-    String[] HashTable;
+    String[] DoubleHashTable;
+    String[] LinearProbTable;
     LinkedList<String>[] SCHashTable;
 
-    public Hashing(int n, DataStructures ds, String word) {
+    public Hashing(int n, DataStructures ds) {
         switch(ds) {
             case LinearProb:
-                setLinearProb(n, word);
+                LinearProbTable = new String[n];
                 break;
             case DoubleHash:
-                setDoubleHash(n, word);
+                DoubleHashTable = new String[n];
                 break;
             case SepChain:
-                setSepChain(n, word);
+                SCHashTable = new LinkedList[n];
                 break;
         }
     }
 
     public enum DataStructures {
         LinearProb, DoubleHash, SepChain
-    }
-
-    private void setLinearProb(int n,String w) {
-        HashTable = new String[n]; 
-
-    }
-
-    private void setDoubleHash(int n,String w) {
-        HashTable = new String[n]; 
-
-    }
-
-    private void setSepChain(int n,String w) {
-        SCHashTable = new LinkedList[n]; 
-
     }
 
 
