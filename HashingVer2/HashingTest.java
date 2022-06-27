@@ -45,7 +45,7 @@ public class HashingTest {
 
             // Clear - Remove every value inserted into the array
             else if (userInput == 3) {
-                table.clearTable();
+                //table.clearTable();
             }
 
             else if (userInput == 4) {
