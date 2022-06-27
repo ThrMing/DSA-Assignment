@@ -10,7 +10,7 @@ public class HashingTest {
         Scanner input = new Scanner(System.in);
         System.out.print("Enter the size of the hash table: ");
         size = input.nextInt();
-        // Hashing table = new Hashing(size);
+        Hashing table = new Hashing(size);
 
         /** Perform HashTable operations **/
         do {
@@ -45,7 +45,7 @@ public class HashingTest {
 
             // Clear - Remove every value inserted into the array
             else if (userInput == 3) {
-
+                table.clearTable();
             }
 
             else if (userInput == 4) {
@@ -57,7 +57,7 @@ public class HashingTest {
             }
 
             /** Display hash table **/
-            // table.printTable();
+            table.printTable();
         } while (userInput != 4);
         input.close();
     }
