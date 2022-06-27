@@ -24,6 +24,7 @@ public class Hashing {
         }
     }
 
+    // Get prime number to calculate step size for double hashing 
     public int getPrime() {
         for(int i = arrSize-1;i>=1;i--) {
             int f = 0;
@@ -39,6 +40,7 @@ public class Hashing {
         return 3;
     }
 
+    // Insertion for Linear Probing data structure 
     public void insertLinearProb(String w) {
         int hashValue = HashFunction(w);
         int index = hashValue % arrSize;
@@ -54,6 +56,7 @@ public class Hashing {
         }
     }
 
+    // Insertion for Double Hashing data structure
     public void insertDoubleHash(String w) {
         int hashValue = HashFunction(w);
         int constant = getPrime();
@@ -69,6 +72,19 @@ public class Hashing {
                 index += stepSize;
                 index %= arrSize;
             }
+        }
+    }
+
+    // Insertion for Separate Chaining data structure 
+    public void insertSepChain(String w) {
+        int hashValue = HashFunction(w);
+        int index = hashValue % arrSize;
+        if (SCHashTable[index] == null) {
+            SCHashTable[index] = new LinkedList<String>();
+            SCHashTable[index].add(w);
+        }
+        else {
+            SCHashTable[index].add(w);
         }
     }
     
