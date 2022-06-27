@@ -7,11 +7,15 @@ public class Hashing {
     String[] LinearProbTable;
     LinkedList<String>[] SCHashTable;
     int arrSize = 0;
-    
+
     // Constructor
+    public Hashing() {
+
+    }
+
     public Hashing(int n, DataStructures ds) {
         n = arrSize;
-        switch(ds) {
+        switch (ds) {
             case LinearProb:
                 LinearProbTable = new String[n];
                 break;
@@ -24,33 +28,32 @@ public class Hashing {
         }
     }
 
-    // Get prime number to calculate step size for double hashing 
+    // Get prime number to calculate step size for double hashing
     public int getPrime() {
-        for(int i = arrSize-1;i>=1;i--) {
+        for (int i = arrSize - 1; i >= 1; i--) {
             int f = 0;
-            for(int j=2;j<=(int)Math.sqrt(i);j++) {
-                if(i%j==0) {
+            for (int j = 2; j <= (int) Math.sqrt(i); j++) {
+                if (i % j == 0) {
                     f++;
                 }
             }
-            if(f==0) {
+            if (f == 0) {
                 return i;
             }
         }
         return 3;
     }
 
-    // Insertion for Linear Probing data structure 
+    // Insertion for Linear Probing data structure
     public void insertLinearProb(String w) {
         int hashValue = HashFunction(w);
         int index = hashValue % arrSize;
         boolean notStored = true;
-        while(notStored) {
-            if(LinearProbTable[index] == null) {
+        while (notStored) {
+            if (LinearProbTable[index] == null) {
                 LinearProbTable[index] = w;
                 notStored = false;
-            }
-            else {
+            } else {
                 hashValue++;
             }
         }
@@ -61,43 +64,41 @@ public class Hashing {
         int hashValue = HashFunction(w);
         int constant = getPrime();
         int index = hashValue % arrSize;
-        int stepSize = constant - (hashValue % constant); 
+        int stepSize = constant - (hashValue % constant);
         boolean notStored = true;
-        while(notStored) {
-            if(DoubleHashTable[index] == null) {
+        while (notStored) {
+            if (DoubleHashTable[index] == null) {
                 DoubleHashTable[index] = w;
                 notStored = false;
-            }
-            else {
+            } else {
                 index += stepSize;
                 index %= arrSize;
             }
         }
     }
 
-    // Insertion for Separate Chaining data structure 
+    // Insertion for Separate Chaining data structure
     public void insertSepChain(String w) {
         int hashValue = HashFunction(w);
         int index = hashValue % arrSize;
         if (SCHashTable[index] == null) {
             SCHashTable[index] = new LinkedList<String>();
             SCHashTable[index].add(w);
-        }
-        else {
+        } else {
             SCHashTable[index].add(w);
         }
     }
-    
+
     // Enumerations: types of data structures
     public enum DataStructures {
         LinearProb, DoubleHash, SepChain
     }
 
-    // Hash Function; returns hashcode value  
+    // Hash Function; returns hashcode value
     public int HashFunction(String w) {
         int hashValue = 0;
-        for (int x = 0; x<w.length(); x++) {
-            hashValue += w.charAt(x)*31^(w.length());
+        for (int x = 0; x < w.length(); x++) {
+            hashValue += w.charAt(x) * 31 ^ (w.length());
         }
         return hashValue;
     }

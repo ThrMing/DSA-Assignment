@@ -4,13 +4,19 @@ import java.util.Scanner;
 
 /** Class HashTableTest **/
 public class HashingTest {
+    DataStructures ds;
+
+    public enum DataStructures {
+        LinearProb, DoubleHash, SepChain
+    }
+
     public static void main(String[] args) {
         String value;
         int userInput, size;
         Scanner input = new Scanner(System.in);
         System.out.print("Enter the size of the hash table: ");
         size = input.nextInt();
-        //Hashing table = new Hashing(size);
+        Hashing linear = new Hashing(size, DataStructures.LinearProb);
 
         /** Perform HashTable operations **/
         do {
