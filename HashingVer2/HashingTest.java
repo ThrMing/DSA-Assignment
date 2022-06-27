@@ -1,14 +1,10 @@
 package HashingVer2;
-
 import java.util.Scanner;
+import HashingVer2.Hashing.DataStructures;
 
 /** Class HashTableTest **/
 public class HashingTest {
-    DataStructures ds;
-
-    public enum DataStructures {
-        LinearProb, DoubleHash, SepChain
-    }
+    private static DataStructures ds;
 
     public static void main(String[] args) {
         String value;
@@ -16,7 +12,9 @@ public class HashingTest {
         Scanner input = new Scanner(System.in);
         System.out.print("Enter the size of the hash table: ");
         size = input.nextInt();
-        Hashing linear = new Hashing(size, DataStructures.LinearProb);
+        Hashing linearHash = new Hashing(size, ds.LinearProb);
+        Hashing doubleHash = new Hashing(size, ds.DoubleHash);
+        Hashing sepchain = new Hashing(size, ds.SepChain);
 
         /** Perform HashTable operations **/
         do {

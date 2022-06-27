@@ -9,9 +9,6 @@ public class Hashing {
     int arrSize = 0;
 
     // Constructor
-    public Hashing() {
-
-    }
 
     public Hashing(int n, DataStructures ds) {
         n = arrSize;
