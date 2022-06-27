@@ -5,7 +5,7 @@ import java.util.Scanner;
 /** Class HashTableTest **/
 public class HashingTest {
     public static void main(String[] args) {
-        String key;
+        String value;
         int userInput, size;
         Scanner input = new Scanner(System.in);
         System.out.print("Enter the size of the hash table: ");
@@ -17,52 +17,48 @@ public class HashingTest {
             System.out.println("***********************************");
             System.out.println("\tHash Table Operations");
             System.out.println("***********************************");
-            System.out.println("1. insert(K,V) ");
-            System.out.println("2. get(K) ");
-            System.out.println("3. contain(K) ");
-            System.out.println("4. clear");
-            System.out.println("5. Exit");
+            System.out.println("1. Insert");
+            System.out.println("2. Search");
+            System.out.println("3. Clear");
+            System.out.println("4. Exit");
             System.out.print("Enter your command:  ");
             userInput = input.nextInt();
 
-            switch (userInput) {
-                case 1:
-                    System.out.println("\n   Key = ");
-                    key = input.next();
-                    // table.insert(key);
-                    break;
+            // Insertion
+            if (userInput == 1) {
+                do {
+                    System.out.print("Insert(0 to exit) : "); // value = user input while key =index
+                    value = input.next();
 
-                case 2:
-                    System.out.println("\n   Key = ");
-                    // key = TextIO.getln(
-                    // System.out.println(" Value is " + table.get(key));
-                    break;
+                } while (!(value.equals("0")));
+            }
 
-                case 3:
-                    System.out.println("\n   Key = ");
-                    // key = TextIO.getln(
-                    // System.out.println(" containsKey(" + key + ") is "
-                    // + table.containsKey(key));
-                    break;
+            // Searching
+            else if (userInput == 2) {
+                do {
 
-                case 4:
-                    // table.clear();
-                    System.out.println("Hash Table Cleared\n");
-                    break;
+                    System.out.print("Search(0 to exit) : ");
+                    value = input.next();
 
-                case 5:
-                    System.out.println("Exiting");
-                    break;
+                } while (!(value.equals("0")));
+            }
 
-                default:
-                    System.out.println("Wrong Entry \n ");
-                    break;
+            // Clear - Remove every value inserted into the array
+            else if (userInput == 3) {
+
+            }
+
+            else if (userInput == 4) {
+                System.out.println("Goodbye");
+            }
+
+            else {
+                System.out.println("Wrong Entry");
             }
 
             /** Display hash table **/
             // table.printTable();
-
-        } while (userInput != 5);
+        } while (userInput != 4);
         input.close();
     }
 
