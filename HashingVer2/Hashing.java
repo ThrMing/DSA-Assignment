@@ -24,6 +24,21 @@ public class Hashing {
         }
     }
 
+    public int getPrime() {
+        for(int i = arrSize-1;i>=1;i--) {
+            int f = 0;
+            for(int j=2;j<=(int)Math.sqrt(i);j++) {
+                if(i%j==0) {
+                    f++;
+                }
+            }
+            if(f==0) {
+                return i;
+            }
+        }
+        return 3;
+    }
+
     public void insertLinearProb(String w) {
         int hashValue = HashFunction(w);
         int index = hashValue % arrSize;
@@ -35,6 +50,24 @@ public class Hashing {
             }
             else {
                 hashValue++;
+            }
+        }
+    }
+
+    public void insertDoubleHash(String w) {
+        int hashValue = HashFunction(w);
+        int constant = getPrime();
+        int index = hashValue % arrSize;
+        int stepSize = constant - (hashValue % constant); 
+        boolean notStored = true;
+        while(notStored) {
+            if(DoubleHashTable[index] == null) {
+                DoubleHashTable[index] = w;
+                notStored = false;
+            }
+            else {
+                index += stepSize;
+                index %= arrSize;
             }
         }
     }
