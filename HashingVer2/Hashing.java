@@ -74,10 +74,18 @@ public class Hashing {
         }
 
         if(indexes.length == 0) {
-            System.out.println("Word does not exist.")
+            System.out.println("Word does not exist.");
         }
         else {
-            System.out.println("Word: " + w + ", Index: " + Arrays.toString(indexes));
+            System.out.println("Word: " + w + ", Indexes: ");
+            for (int i=0; i<indexes.length;i++) {
+                if(indexes[i] == 0) {
+                    break;
+                }
+                else {
+                    System.out.print(indexes[i]);
+                }
+            }
         }
     }
 
