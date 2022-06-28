@@ -100,6 +100,33 @@ public class Hashing {
         }
     }
 
+    // Search method for Double Hashing data structure 
+    public void searchDoubleHash(String w) {
+        int hashValue = HashFunction(w);
+        int constant = getPrime();
+        int index = hashValue % arrSize;
+        int stepSize = constant - (hashValue % constant);
+
+        boolean notFound = true;
+        while(notFound) {
+            if (DoubleHashTable[index] != null) {
+                if (w.equals(DoubleHashTable[index])) {
+                    System.out.println("Word: " + w + ", Hash Value: " + hashValue + ", Index: " + index);
+                    notFound = false;
+                }
+                else {
+                    index += stepSize;
+                    index %= arrSize;
+                }
+            }
+            else {
+                System.out.println("Word does not exist.");
+                break;
+            }
+        }
+        return;
+    }
+
     // Insertion for Separate Chaining data structure
     public void insertSepChain(String w) {
         int hashValue = HashFunction(w);
