@@ -66,26 +66,26 @@ public class Hashing {
         int indexes[] = new int[arrSize];
         int x = 0;
 
-        for (int i=0;i<arrSize;i++) {
+        for (int i = 0; i < arrSize; i++) {
             if (w.equals(LinearProbTable[i])) {
                 indexes[x] = i;
                 x++;
             }
         }
 
-        if(indexes.length == 0) {
+        if (indexes.length == 0) {
             System.out.println("Word does not exist.");
-        }
-        else {
-            System.out.println("Word: " + w + ", Indexes: ");
-            for (int i=0; i<indexes.length;i++) {
-                if(indexes[i] == 0) {
+        } else {
+            System.out.print("[Linear Probing] Word: " + w + ", Indexes: ");
+            for (int i = 0; i < indexes.length; i++) {
+                if (indexes[i] == 0) {
                     break;
+                } else {
+                    System.out.print(indexes[i] + ", ");
                 }
-                else {
-                    System.out.print(indexes[i]);
-                }
+
             }
+            System.out.println("");
         }
     }
 
