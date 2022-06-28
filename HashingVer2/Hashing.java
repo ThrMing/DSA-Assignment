@@ -60,6 +60,30 @@ public class Hashing {
         }
     }
 
+    // Searching for Linear Probing data structure 
+    public void searchLinearProb(String w) {
+        int hashValue = HashFunction(w);
+        int index = hashValue % arrSize;
+
+        boolean notFound = true;
+        while(notFound) {
+            if (LinearProbTable[index] != null) {
+                if (w.equals(LinearProbTable[index])) {
+                    System.out.println("Word: " + w + ", Hash Value: " + hashValue + ", Index: " + index);
+                    notFound = false;
+                }
+                else {
+                    index++;
+                }
+            }
+            else {
+                System.out.println("Word does not exist.");
+                break;
+            }
+        }
+        return;
+    }
+
     // Insertion for Double Hashing data structure
     public void insertDoubleHash(String w) {
         int hashValue = HashFunction(w);
