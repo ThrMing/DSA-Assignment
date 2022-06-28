@@ -1,6 +1,4 @@
 package HashingVer2;
-
-import java.util.Arrays;
 import java.util.LinkedList;
 
 public class Hashing {
@@ -150,7 +148,6 @@ public class Hashing {
     // Search method for Separate Chaining data structure
     public void searchSepChain(String w) {
         int indexes[] = new int[arrSize];
-        int m = 0;
 
         for (int x = 0; x < arrSize; x++) {
             if (SCHashTable[x] == null) {
@@ -158,8 +155,7 @@ public class Hashing {
             }
             for (int y = 0; y < SCHashTable[x].size();y++) {
                 if (w.equals(SCHashTable[x].get(y))) {
-                    indexes[m] = x;
-                    m++;
+                    indexes[0] = x;
                 }
             }
         }
@@ -167,12 +163,12 @@ public class Hashing {
         if (indexes[0] == 0) {
             System.out.println("Word does not exist.");
         } else {
-            System.out.print("[Separate Chaining] Word: " + w + ", Indexes: ");
+            System.out.print("[Separate Chaining] Word: " + w + ", Index: ");
             for (int i = 0; i < indexes.length; i++) {
                 if (indexes[i] == 0) {
                     break;
                 } else {
-                    System.out.print(indexes[i] + ", ");
+                    System.out.print(indexes[i]);
                 }
 
             }
