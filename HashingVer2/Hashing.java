@@ -60,23 +60,22 @@ public class Hashing {
         }
     }
 
-    // Searching for Linear Probing data structure 
+    // Searching for Linear Probing data structure
     public void searchLinearProb(String w) {
         int hashValue = HashFunction(w);
         int index = hashValue % arrSize;
 
         boolean notFound = true;
-        while(notFound) {
+        while (notFound) {
             if (LinearProbTable[index] != null) {
                 if (w.equals(LinearProbTable[index])) {
-                    System.out.println("Word: " + w + ", Hash Value: " + hashValue + ", Index: " + index);
+                    System.out.println(
+                            "[Linear Probing] Word: " + w + ", Hash Value: " + hashValue + ", Index: " + index);
                     notFound = false;
-                }
-                else {
+                } else {
                     index++;
                 }
-            }
-            else {
+            } else {
                 System.out.println("Word does not exist.");
                 break;
             }
@@ -102,7 +101,7 @@ public class Hashing {
         }
     }
 
-    // Search method for Double Hashing data structure 
+    // Search method for Double Hashing data structure
     public void searchDoubleHash(String w) {
         int hashValue = HashFunction(w);
         int constant = getPrime();
@@ -110,18 +109,17 @@ public class Hashing {
         int stepSize = constant - (hashValue % constant);
 
         boolean notFound = true;
-        while(notFound) {
+        while (notFound) {
             if (DoubleHashTable[index] != null) {
                 if (w.equals(DoubleHashTable[index])) {
-                    System.out.println("Word: " + w + ", Hash Value: " + hashValue + ", Index: " + index);
+                    System.out.println(
+                            "[Double Hashing] Word: " + w + ", Hash Value: " + hashValue + ", Index: " + index);
                     notFound = false;
-                }
-                else {
+                } else {
                     index += stepSize;
                     index %= arrSize;
                 }
-            }
-            else {
+            } else {
                 System.out.println("Word does not exist.");
                 break;
             }
@@ -293,16 +291,4 @@ public class Hashing {
 
     }
 
-    public boolean searchValue(String value) {
-        for (String i : LinearProbTable) {
-            if (value.equals(i)) {
-                System.out.println(value + " Can be found");
-            } else {
-                System.out.println("1");
-            }
-
-        }
-        return false;
-
-    }
 }

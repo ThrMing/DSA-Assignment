@@ -50,7 +50,7 @@ public class HashingTest {
                             sepchain.insertSepChain(value);
                             count++;
                             if (count == size) {
-                                System.out.println("Can't insert because table is full");
+                                System.out.println("Can't insert anymore because table is full");
                             }
                         }
                     } else {
@@ -61,15 +61,16 @@ public class HashingTest {
 
             // Searching
             else if (userInput == 2) {
-                do {
 
+                do {
                     System.out.print("Search(0 to exit) : ");
                     value = input.next();
                     if (!(value.equals("0"))) {
-                        linearHash.searchValue(value);
-
+                        linearHash.searchLinearProb(value);
+                        doubleHash.searchDoubleHash(value);
                     }
                 } while (!(value.equals("0")));
+
             }
 
             // Clear - Remove every value inserted into the array
