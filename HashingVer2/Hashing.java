@@ -141,6 +141,34 @@ public class Hashing {
         }
     }
 
+    // Search method for Separate Chaining data structure 
+    public void searchSepChain(String w) {
+        int hashValue = HashFunction(w);
+        int index = hashValue % arrSize;
+        int i = 0;
+        boolean notFound = true;
+        while(notFound) {
+            if (SCHashTable[index] != null) {
+                if (w.equals(SCHashTable[index].get(i))) {
+                    System.out.println("Word: " + w + ", Hash Value: " + hashValue + ", Index: " + index);
+                    notFound = false;
+                }
+                else {
+                    i++;
+                    if (SCHashTable[index].size() <= i) {
+                        System.out.println("Word does not exist.");
+                        break;
+                    }
+                }
+            }
+            else {
+                System.out.println("Word does not exist.");
+                break;
+            }
+        }
+        return;
+    }
+
     // Enumerations: types of data structures
     public enum DataStructures {
         LinearProb, DoubleHash, SepChain
