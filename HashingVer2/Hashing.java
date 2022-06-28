@@ -95,6 +95,9 @@ public class Hashing {
         int stepSize = constant - (hashValue % constant);
         boolean notStored = true;
         while (notStored) {
+            if (index == (arrSize-1) && LinearProbTable[index] != null) {
+                index = 0;
+            }
             if (DoubleHashTable[index] == null) {
                 DoubleHashTable[index] = w;
                 notStored = false;
