@@ -8,11 +8,7 @@ public class Hashing {
     int arrSize;
     int count = 0;
 
-    // Constructor
-    public Hashing() {
-
-    }
-
+    //Constructor
     public Hashing(int n, DataStructures ds) {
         arrSize = n;
         switch (ds) {
@@ -50,10 +46,14 @@ public class Hashing {
         int index = hashValue % arrSize;
         boolean notStored = true;
         while (notStored) {
+            if (index == (arrSize-1) && LinearProbTable[index] != null) {
+                index = 0;
+            }
             if (LinearProbTable[index] == null) {
                 LinearProbTable[index] = w;
                 notStored = false;
-            } else {
+            } 
+            else {
                 index++;
             }
         }
@@ -71,10 +71,10 @@ public class Hashing {
             }
         }
 
-        if (indexes.length == 0) {
-            System.out.println("Word does not exist.");
+        if (indexes[0] == 0) {
+            System.out.println("[Linear Probing] Value does not exist.");
         } else {
-            System.out.print("[Linear Probing] Word: " + w + ", Indexes: ");
+            System.out.print("[Linear Probing] Value: " + w + ", Indexes: ");
             for (int i = 0; i < indexes.length; i++) {
                 if (indexes[i] == 0) {
                     break;
@@ -117,10 +117,10 @@ public class Hashing {
             }
         }
 
-        if (indexes.length == 0) {
-            System.out.println("Word does not exist.");
+        if (indexes[0] == 0) {
+            System.out.println("[Double Hashing] Value does not exist.");
         } else {
-            System.out.print("[Double Hashing] Word: " + w + ", Indexes: ");
+            System.out.print("[Double Hashing] Value: " + w + ", Indexes: ");
             for (int i = 0; i < indexes.length; i++) {
                 if (indexes[i] == 0) {
                     break;
@@ -161,9 +161,9 @@ public class Hashing {
         }
 
         if (indexes[0] == 0) {
-            System.out.println("Word does not exist.");
+            System.out.println("[Separate Chaining] Value does not exist.");
         } else {
-            System.out.print("[Separate Chaining] Word: " + w + ", Index: ");
+            System.out.print("[Separate Chaining] Value: " + w + ", Index: ");
             for (int i = 0; i < indexes.length; i++) {
                 if (indexes[i] == 0) {
                     break;
