@@ -1,5 +1,6 @@
 package HashingVer2;
 
+import java.util.Arrays;
 import java.util.LinkedList;
 
 public class Hashing {
@@ -62,25 +63,30 @@ public class Hashing {
 
     // Searching for Linear Probing data structure
     public void searchLinearProb(String w) {
-        int hashValue = HashFunction(w);
-        int index = hashValue % arrSize;
+        int indexes[] = new int[arrSize];
+        int x = 0;
 
-        boolean notFound = true;
-        while (notFound) {
-            if (LinearProbTable[index] != null) {
-                if (w.equals(LinearProbTable[index])) {
-                    System.out.println(
-                            "[Linear Probing] Word: " + w + ", Hash Value: " + hashValue + ", Index: " + index);
-                    notFound = false;
-                } else {
-                    index++;
-                }
-            } else {
-                System.out.println("Word does not exist.");
-                break;
+        for (int i=0;i<arrSize;i++) {
+            if (w.equals(LinearProbTable[i])) {
+                indexes[x] = i;
+                x++;
             }
         }
-        return;
+
+        if(indexes.length == 0) {
+            System.out.println("Word does not exist.");
+        }
+        else {
+            System.out.println("Word: " + w + ", Indexes: ");
+            for (int i=0; i<indexes.length;i++) {
+                if(indexes[i] == 0) {
+                    break;
+                }
+                else {
+                    System.out.print(indexes[i]);
+                }
+            }
+        }
     }
 
     // Insertion for Double Hashing data structure
