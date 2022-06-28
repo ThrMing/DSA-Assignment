@@ -2,6 +2,8 @@ package HashingVer2;
 
 import java.util.LinkedList;
 
+import javax.lang.model.util.ElementScanner6;
+
 public class Hashing {
     String[] DoubleHashTable;
     String[] LinearProbTable;
@@ -107,32 +109,83 @@ public class Hashing {
     public void printLinearTable() {
         System.out.println("Hash Table{Linear}: ");
         for (int i = 0; i < LinearProbTable.length; i++) {
-            System.out.print(i + " |" + LinearProbTable[i] + " ");
+            if (LinearProbTable[i] != null) {
+                if (i < 10) {
+                    System.out.println(" " + i + " |" + LinearProbTable[i]);
+                } else if (i >= 10 && i < 100) {
+
+                    System.out.println(i + " |" + LinearProbTable[i]);
+
+                } else {
+                    System.out.println(i + "|" + LinearProbTable[i]);
+                }
+            } else {
+                if (i < 10) {
+                    System.out.println(" " + i + " |" + "");
+                } else if (i >= 10 && i < 100) {
+
+                    System.out.println(i + " |" + "");
+
+                } else {
+                    System.out.println(i + "|" + "");
+                }
+            }
+
         }
         System.out.println();
     }
 
     public void printDoubleTable() {
-        System.out.println("Hash Table(Double): ");
+        System.out.println("Hash Table{Double}: ");
         for (int i = 0; i < DoubleHashTable.length; i++) {
-            System.out.print(DoubleHashTable[i] + " ");
-            count++;
-            if (count == 10) {
-                count = 0;
-                System.out.println();
+            if (DoubleHashTable[i] != null) {
+                if (i < 10) {
+                    System.out.println(" " + i + " |" + DoubleHashTable[i]);
+                } else if (i >= 10 && i < 100) {
+
+                    System.out.println(i + " |" + DoubleHashTable[i]);
+
+                } else {
+                    System.out.println(i + "|" + DoubleHashTable[i]);
+                }
+            } else {
+                if (i < 10) {
+                    System.out.println(" " + i + " |" + "");
+                } else if (i >= 10 && i < 100) {
+
+                    System.out.println(i + " |" + "");
+
+                } else {
+                    System.out.println(i + "|" + "");
+                }
             }
         }
         System.out.println();
     }
 
     public void printSeparateTable() {
-        System.out.println("Hash Table(Separate): ");
+        System.out.println("Hash Table{Separate}: ");
         for (int i = 0; i < SCHashTable.length; i++) {
-            System.out.print(SCHashTable[i] + " ");
-            count++;
-            if (count == 5) {
-                count = 0;
-                System.out.println();
+            if (SCHashTable[i] != null) {
+                if (i < 10) {
+                    System.out.println(" " + i + " |" + SCHashTable[i]);
+                } else if (i >= 10 && i < 100) {
+
+                    System.out.println(i + " |" + SCHashTable[i]);
+
+                } else {
+                    System.out.println(i + "|" + SCHashTable[i]);
+                }
+            } else {
+                if (i < 10) {
+                    System.out.println(" " + i + " |" + "");
+                } else if (i >= 10 && i < 100) {
+
+                    System.out.println(i + " |" + "");
+
+                } else {
+                    System.out.println(i + "|" + "");
+                }
             }
         }
         System.out.println();
