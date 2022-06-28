@@ -60,23 +60,21 @@ public class Hashing {
         }
     }
 
-    // Searching for Linear Probing data structure 
+    // Searching for Linear Probing data structure
     public void searchLinearProb(String w) {
         int hashValue = HashFunction(w);
         int index = hashValue % arrSize;
 
         boolean notFound = true;
-        while(notFound) {
+        while (notFound) {
             if (LinearProbTable[index] != null) {
                 if (w.equals(LinearProbTable[index])) {
                     System.out.println("Word: " + w + ", Hash Value: " + hashValue + ", Index: " + index);
                     notFound = false;
-                }
-                else {
+                } else {
                     index++;
                 }
-            }
-            else {
+            } else {
                 System.out.println("Word does not exist.");
                 break;
             }
@@ -238,16 +236,4 @@ public class Hashing {
 
     }
 
-    public boolean searchValue(String value) {
-        for (String i : LinearProbTable) {
-            if (value.equals(i)) {
-                System.out.println(value + " Can be found");
-            } else {
-                System.out.println("1");
-            }
-
-        }
-        return false;
-
-    }
 }
