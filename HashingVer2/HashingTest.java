@@ -11,8 +11,16 @@ public class HashingTest {
         String value;
         int userInput, size;
         Scanner input = new Scanner(System.in);
-        System.out.print("Enter the size of the hash table: ");
+
+        System.out.print("Enter the size of the hash table( >= 10):  ");
         size = input.nextInt();
+        while (size < 10) {
+            if (size < 10) {
+                System.out.println("Insert any value more than 10");
+                System.out.print("Enter the size of the hash table( >= 10):  ");
+                size = input.nextInt();
+            }
+        }
         Hashing linearHash = new Hashing(size, DataStructures.LinearProb);
         Hashing doubleHash = new Hashing(size, DataStructures.DoubleHash);
         Hashing sepchain = new Hashing(size, DataStructures.SepChain);
@@ -25,7 +33,8 @@ public class HashingTest {
             System.out.println("1. Insert");
             System.out.println("2. Search");
             System.out.println("3. Clear");
-            System.out.println("4. Exit");
+            System.out.println("4. Display");
+            System.out.println("5. Exit");
             System.out.print("Enter your command:  ");
             userInput = input.nextInt();
 
@@ -41,7 +50,6 @@ public class HashingTest {
 
                     }
                 } while (!(value.equals("0")));
-
             }
 
             // Searching
@@ -64,7 +72,42 @@ public class HashingTest {
                 sepchain.clearSeparateTable();
             }
 
+            // Display hashtable
             else if (userInput == 4) {
+                do {
+                    System.out.println("***********************************");
+                    System.out.println("\t       Display");
+                    System.out.println("***********************************");
+                    System.out.println("1. Linear Probing");
+                    System.out.println("2. Double Hashing");
+                    System.out.println("3. Separate Chaining");
+                    System.out.println("4. Exit");
+                    userInput = input.nextInt();
+
+                    switch (userInput) {
+                        case 1:
+                            linearHash.printLinearTable();
+                            break;
+                        case 2:
+                            doubleHash.printDoubleTable();
+
+                            break;
+                        case 3:
+                            sepchain.printSeparateTable();
+                            break;
+
+                        case 4:
+                            System.out.println("Exiting to Main Menu");
+                            break;
+
+                        default:
+                            System.out.println("Wrong Entry");
+                            break;
+                    }
+                } while (userInput != 4);
+            }
+
+            else if (userInput == 5) {
                 System.out.println("Goodbye");
             }
 
@@ -72,12 +115,7 @@ public class HashingTest {
                 System.out.println("Wrong Entry");
             }
 
-            /** Display hash table **/
-            linearHash.printLinearTable();
-            doubleHash.printDoubleTable();
-            sepchain.printSeparateTable();
-
-        } while (userInput != 4);
+        } while (userInput != 5);
         input.close();
     }
 

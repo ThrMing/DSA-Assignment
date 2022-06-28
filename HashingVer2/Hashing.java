@@ -2,8 +2,6 @@ package HashingVer2;
 
 import java.util.LinkedList;
 
-import javax.lang.model.util.ElementScanner6;
-
 public class Hashing {
     String[] DoubleHashTable;
     String[] LinearProbTable;
@@ -194,13 +192,17 @@ public class Hashing {
     public void clearLinearTable() {
         for (int i = 0; i < LinearProbTable.length; i++) {
             LinearProbTable[i] = null;
+
         }
+        System.out.println("Linear Table Clear Successfully");
+
     }
 
     public void clearDoubleTable() {
         for (int i = 0; i < DoubleHashTable.length; i++) {
             DoubleHashTable[i] = null;
         }
+        System.out.println("Double Table Clear Successfully");
 
     }
 
@@ -208,6 +210,7 @@ public class Hashing {
         for (int i = 0; i < SCHashTable.length; i++) {
             SCHashTable[i] = null;
         }
+        System.out.println("Separate Table Clear Successfully");
 
     }
 
