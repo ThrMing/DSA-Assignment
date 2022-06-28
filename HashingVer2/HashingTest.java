@@ -13,9 +13,9 @@ public class HashingTest {
         Scanner input = new Scanner(System.in);
         System.out.print("Enter the size of the hash table: ");
         size = input.nextInt();
-        Hashing linearHash = new Hashing(size, ds.LinearProb);
-        Hashing doubleHash = new Hashing(size, ds.DoubleHash);
-        Hashing sepchain = new Hashing(size, ds.SepChain);
+        Hashing linearHash = new Hashing(size, DataStructures.LinearProb);
+        Hashing doubleHash = new Hashing(size, DataStructures.DoubleHash);
+        Hashing sepchain = new Hashing(size, DataStructures.SepChain);
 
         /** Perform HashTable operations **/
         do {
@@ -32,15 +32,13 @@ public class HashingTest {
             // Insertion
             if (userInput == 1) {
                 do {
-                    System.out.print("Insert(0 to exit) : "); // value = user input while key =index
+                    System.out.print("Insert(0 to exit) : ");
                     value = input.next();
                     if (!(value.equals("0"))) {
                         linearHash.insertLinearProb(value);
                         doubleHash.insertDoubleHash(value);
                         sepchain.insertSepChain(value);
-                        // linearHash.printLinearTable();
-                        // doubleHash.printDoubleTable();
-                        sepchain.printSeparateTable();
+
                     }
                 } while (!(value.equals("0")));
 
@@ -52,13 +50,18 @@ public class HashingTest {
 
                     System.out.print("Search(0 to exit) : ");
                     value = input.next();
+                    if (!(value.equals("0"))) {
+                        linearHash.searchValue(value);
 
+                    }
                 } while (!(value.equals("0")));
             }
 
             // Clear - Remove every value inserted into the array
             else if (userInput == 3) {
-                linearHash.clearTable();
+                linearHash.clearLinearTable();
+                doubleHash.clearDoubleTable();
+                sepchain.clearSeparateTable();
             }
 
             else if (userInput == 4) {
@@ -70,7 +73,10 @@ public class HashingTest {
             }
 
             /** Display hash table **/
-            // table.printTable();
+            linearHash.printLinearTable();
+            doubleHash.printDoubleTable();
+            sepchain.printSeparateTable();
+
         } while (userInput != 4);
         input.close();
     }

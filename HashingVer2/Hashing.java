@@ -10,6 +10,9 @@ public class Hashing {
     int count = 0;
 
     // Constructor
+    public Hashing() {
+
+    }
 
     public Hashing(int n, DataStructures ds) {
         arrSize = n;
@@ -104,12 +107,7 @@ public class Hashing {
     public void printLinearTable() {
         System.out.println("Hash Table{Linear}: ");
         for (int i = 0; i < LinearProbTable.length; i++) {
-            System.out.print(LinearProbTable[i] + " ");
-            count++;
-            if (count == 10) {
-                count = 0;
-                System.out.println();
-            }
+            System.out.print(i + " |" + LinearProbTable[i] + " ");
         }
         System.out.println();
     }
@@ -132,7 +130,7 @@ public class Hashing {
         for (int i = 0; i < SCHashTable.length; i++) {
             System.out.print(SCHashTable[i] + " ");
             count++;
-            if (count == 10) {
+            if (count == 5) {
                 count = 0;
                 System.out.println();
             }
@@ -140,18 +138,36 @@ public class Hashing {
         System.out.println();
     }
 
-    public void clearTable() {
-        for (int i = 0; i < DoubleHashTable.length; i++) {
-            DoubleHashTable[i] = null;
-        }
-
-        for (int i = 0; i < SCHashTable.length; i++) {
-            SCHashTable[i] = null;
-        }
-
+    public void clearLinearTable() {
         for (int i = 0; i < LinearProbTable.length; i++) {
             LinearProbTable[i] = null;
         }
     }
 
+    public void clearDoubleTable() {
+        for (int i = 0; i < DoubleHashTable.length; i++) {
+            DoubleHashTable[i] = null;
+        }
+
+    }
+
+    public void clearSeparateTable() {
+        for (int i = 0; i < SCHashTable.length; i++) {
+            SCHashTable[i] = null;
+        }
+
+    }
+
+    public boolean searchValue(String value) {
+        for (String i : LinearProbTable) {
+            if (value.equals(i)) {
+                System.out.println(value + " Can be found");
+            } else {
+                System.out.println("1");
+            }
+
+        }
+        return false;
+
+    }
 }
