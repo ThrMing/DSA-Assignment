@@ -61,45 +61,16 @@ public class HashingTest {
 
             // Searching
             else if (userInput == 2) {
+
                 do {
-                    System.out.println("***********************************");
-                    System.out.println("\t       Search");
-                    System.out.println("***********************************");
-                    System.out.println("1. Linear Probing");
-                    System.out.println("2. Double Hashing");
-                    System.out.println("3. Separate Chaining");
-                    System.out.println("4. Exit");
-                    userInput = input.nextInt();
-
-                    switch (userInput) {
-                        case 1:
-                            do {
-
-                                System.out.print("Search(0 to exit) : ");
-                                value = input.next();
-                                if (!(value.equals("0"))) {
-                                    linearHash.searchLinearProb(value);
-                                }
-                            } while (!(value.equals("0")));
-                            break;
-
-                        case 2:
-                            doubleHash.printDoubleTable();
-                            break;
-
-                        case 3:
-                            sepchain.printSeparateTable();
-                            break;
-
-                        case 4:
-                            System.out.println("Exiting to Main Menu");
-                            break;
-
-                        default:
-                            System.out.println("Wrong Entry");
-                            break;
+                    System.out.print("Search(0 to exit) : ");
+                    value = input.next();
+                    if (!(value.equals("0"))) {
+                        linearHash.searchLinearProb(value);
+                        doubleHash.searchDoubleHash(value);
                     }
-                } while (userInput != 4);
+                } while (!(value.equals("0")));
+
             }
 
             // Clear - Remove every value inserted into the array

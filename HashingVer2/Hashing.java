@@ -69,7 +69,8 @@ public class Hashing {
         while (notFound) {
             if (LinearProbTable[index] != null) {
                 if (w.equals(LinearProbTable[index])) {
-                    System.out.println("Word: " + w + ", Hash Value: " + hashValue + ", Index: " + index);
+                    System.out.println(
+                            "[Linear Probing] Word: " + w + ", Hash Value: " + hashValue + ", Index: " + index);
                     notFound = false;
                 } else {
                     index++;
@@ -100,7 +101,7 @@ public class Hashing {
         }
     }
 
-    // Search method for Double Hashing data structure 
+    // Search method for Double Hashing data structure
     public void searchDoubleHash(String w) {
         int hashValue = HashFunction(w);
         int constant = getPrime();
@@ -108,18 +109,17 @@ public class Hashing {
         int stepSize = constant - (hashValue % constant);
 
         boolean notFound = true;
-        while(notFound) {
+        while (notFound) {
             if (DoubleHashTable[index] != null) {
                 if (w.equals(DoubleHashTable[index])) {
-                    System.out.println("Word: " + w + ", Hash Value: " + hashValue + ", Index: " + index);
+                    System.out.println(
+                            "[Double Hashing] Word: " + w + ", Hash Value: " + hashValue + ", Index: " + index);
                     notFound = false;
-                }
-                else {
+                } else {
                     index += stepSize;
                     index %= arrSize;
                 }
-            }
-            else {
+            } else {
                 System.out.println("Word does not exist.");
                 break;
             }
