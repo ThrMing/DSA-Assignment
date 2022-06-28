@@ -11,7 +11,7 @@ public class HashingTest {
         String value;
         int userInput, size;
         Scanner input = new Scanner(System.in);
-
+        int count = 0;
         System.out.print("Enter the size of the hash table( >= 10):  ");
         size = input.nextInt();
         while (size < 10) {
@@ -43,13 +43,20 @@ public class HashingTest {
                 do {
                     System.out.print("Insert(0 to exit) : ");
                     value = input.next();
-                    if (!(value.equals("0"))) {
-                        linearHash.insertLinearProb(value);
-                        doubleHash.insertDoubleHash(value);
-                        sepchain.insertSepChain(value);
-
+                    if (count < size) {
+                        if (!(value.equals("0"))) {
+                            linearHash.insertLinearProb(value);
+                            doubleHash.insertDoubleHash(value);
+                            sepchain.insertSepChain(value);
+                            count++;
+                            if (count == size) {
+                                System.out.println("Can't insert because table is full");
+                            }
+                        }
+                    } else {
+                        System.out.println("Table is full");
                     }
-                } while (!(value.equals("0")));
+                } while ((!(value.equals("0"))) && (count < size));
             }
 
             // Searching
@@ -67,6 +74,7 @@ public class HashingTest {
 
             // Clear - Remove every value inserted into the array
             else if (userInput == 3) {
+                count = 0;
                 linearHash.clearLinearTable();
                 doubleHash.clearDoubleTable();
                 sepchain.clearSeparateTable();
