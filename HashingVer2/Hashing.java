@@ -71,17 +71,15 @@ public class Hashing {
             }
         }
 
-        if (indexes[0] == 0) {
+        if (indexes[0] == 0 && indexes[1] == 0) {
             System.out.println("[Linear Probing] Value does not exist.");
         } else {
             System.out.print("[Linear Probing] Value: " + w + ", Indexes: ");
             for (int i = 0; i < indexes.length; i++) {
-                if (indexes[i] == 0) {
+                System.out.print(indexes[i] + ", ");
+                if (indexes[i+1] == 0) {
                     break;
-                } else {
-                    System.out.print(indexes[i] + ", ");
-                }
-
+                } 
             }
             System.out.println("");
         }
@@ -95,7 +93,7 @@ public class Hashing {
         int stepSize = constant - (hashValue % constant);
         boolean notStored = true;
         while (notStored) {
-            if (index == (arrSize-1) && LinearProbTable[index] != null) {
+            if (index == (arrSize-1) && DoubleHashTable[index] != null) {
                 index = 0;
             }
             if (DoubleHashTable[index] == null) {
@@ -120,17 +118,15 @@ public class Hashing {
             }
         }
 
-        if (indexes[0] == 0) {
+        if (indexes[0] == 0 && indexes[1] == 0) {
             System.out.println("[Double Hashing] Value does not exist.");
         } else {
             System.out.print("[Double Hashing] Value: " + w + ", Indexes: ");
             for (int i = 0; i < indexes.length; i++) {
-                if (indexes[i] == 0) {
+                System.out.print(indexes[i] + ", ");
+                if (indexes[i+1] == 0) {
                     break;
-                } else {
-                    System.out.print(indexes[i] + ", ");
-                }
-
+                } 
             }
             System.out.println("");
         }
