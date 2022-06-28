@@ -101,8 +101,8 @@ public class Hashing {
         return hashValue;
     }
 
-    public void printTable() {
-        System.out.println("Hash Table: ");
+    public void printLinearTable() {
+        System.out.println("Hash Table{Linear}: ");
         for (int i = 0; i < LinearProbTable.length; i++) {
             System.out.print(LinearProbTable[i] + " ");
             count++;
@@ -113,4 +113,45 @@ public class Hashing {
         }
         System.out.println();
     }
+
+    public void printDoubleTable() {
+        System.out.println("Hash Table(Double): ");
+        for (int i = 0; i < DoubleHashTable.length; i++) {
+            System.out.print(DoubleHashTable[i] + " ");
+            count++;
+            if (count == 10) {
+                count = 0;
+                System.out.println();
+            }
+        }
+        System.out.println();
+    }
+
+    public void printSeparateTable() {
+        System.out.println("Hash Table(Separate): ");
+        for (int i = 0; i < SCHashTable.length; i++) {
+            System.out.print(SCHashTable[i] + " ");
+            count++;
+            if (count == 10) {
+                count = 0;
+                System.out.println();
+            }
+        }
+        System.out.println();
+    }
+
+    public void clearTable() {
+        for (int i = 0; i < DoubleHashTable.length; i++) {
+            DoubleHashTable[i] = null;
+        }
+
+        for (int i = 0; i < SCHashTable.length; i++) {
+            SCHashTable[i] = null;
+        }
+
+        for (int i = 0; i < LinearProbTable.length; i++) {
+            LinearProbTable[i] = null;
+        }
+    }
+
 }

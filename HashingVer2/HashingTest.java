@@ -38,7 +38,9 @@ public class HashingTest {
                         linearHash.insertLinearProb(value);
                         doubleHash.insertDoubleHash(value);
                         sepchain.insertSepChain(value);
-                        linearHash.printTable();
+                        // linearHash.printLinearTable();
+                        // doubleHash.printDoubleTable();
+                        sepchain.printSeparateTable();
                     }
                 } while (!(value.equals("0")));
 
@@ -56,7 +58,7 @@ public class HashingTest {
 
             // Clear - Remove every value inserted into the array
             else if (userInput == 3) {
-                // table.clearTable();
+                linearHash.clearTable();
             }
 
             else if (userInput == 4) {
