@@ -109,28 +109,30 @@ public class Hashing {
 
     // Search method for Double Hashing data structure
     public void searchDoubleHash(String w) {
-        int hashValue = HashFunction(w);
-        int constant = getPrime();
-        int index = hashValue % arrSize;
-        int stepSize = constant - (hashValue % constant);
+        int indexes[] = new int[arrSize];
+        int x = 0;
 
-        boolean notFound = true;
-        while (notFound) {
-            if (DoubleHashTable[index] != null) {
-                if (w.equals(DoubleHashTable[index])) {
-                    System.out.println(
-                            "[Double Hashing] Word: " + w + ", Hash Value: " + hashValue + ", Index: " + index);
-                    notFound = false;
-                } else {
-                    index += stepSize;
-                    index %= arrSize;
-                }
-            } else {
-                System.out.println("Word does not exist.");
-                break;
+        for (int i = 0; i < arrSize; i++) {
+            if (w.equals(DoubleHashTable[i])) {
+                indexes[x] = i;
+                x++;
             }
         }
-        return;
+
+        if (indexes.length == 0) {
+            System.out.println("Word does not exist.");
+        } else {
+            System.out.print("[Double Hashing] Word: " + w + ", Indexes: ");
+            for (int i = 0; i < indexes.length; i++) {
+                if (indexes[i] == 0) {
+                    break;
+                } else {
+                    System.out.print(indexes[i] + ", ");
+                }
+
+            }
+            System.out.println("");
+        }
     }
 
     // Insertion for Separate Chaining data structure
@@ -147,29 +149,35 @@ public class Hashing {
 
     // Search method for Separate Chaining data structure
     public void searchSepChain(String w) {
-        int hashValue = HashFunction(w);
-        int index = hashValue % arrSize;
-        int i = 0;
-        boolean notFound = true;
-        while (notFound) {
-            if (SCHashTable[index] != null) {
-                if (w.equals(SCHashTable[index].get(i))) {
-                    System.out.println(
-                            "[Separate Chaining] Word: " + w + ", Hash Value: " + hashValue + ", Index: " + index);
-                    notFound = false;
-                } else {
-                    i++;
-                    if (SCHashTable[index].size() <= i) {
-                        System.out.println("Word does not exist.");
-                        break;
-                    }
+        int indexes[] = new int[arrSize];
+        int m = 0;
+
+        for (int x = 0; x < arrSize; x++) {
+            if (SCHashTable[x] == null) {
+                continue;
+            }
+            for (int y = 0; y < SCHashTable[x].size();y++) {
+                if (w.equals(SCHashTable[x].get(y))) {
+                    indexes[m] = x;
+                    m++;
                 }
-            } else {
-                System.out.println("Word does not exist.");
-                break;
             }
         }
-        return;
+
+        if (indexes[0] == 0) {
+            System.out.println("Word does not exist.");
+        } else {
+            System.out.print("[Separate Chaining] Word: " + w + ", Indexes: ");
+            for (int i = 0; i < indexes.length; i++) {
+                if (indexes[i] == 0) {
+                    break;
+                } else {
+                    System.out.print(indexes[i] + ", ");
+                }
+
+            }
+            System.out.println("");
+        }
     }
 
     // Enumerations: types of data structures
