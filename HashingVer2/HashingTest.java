@@ -68,6 +68,7 @@ public class HashingTest {
                     if (!(value.equals("0"))) {
                         linearHash.searchLinearProb(value);
                         doubleHash.searchDoubleHash(value);
+                        sepchain.searchSepChain(value);
                     }
                 } while (!(value.equals("0")));
 

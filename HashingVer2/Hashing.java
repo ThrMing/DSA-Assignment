@@ -139,27 +139,26 @@ public class Hashing {
         }
     }
 
-    // Search method for Separate Chaining data structure 
+    // Search method for Separate Chaining data structure
     public void searchSepChain(String w) {
         int hashValue = HashFunction(w);
         int index = hashValue % arrSize;
         int i = 0;
         boolean notFound = true;
-        while(notFound) {
+        while (notFound) {
             if (SCHashTable[index] != null) {
                 if (w.equals(SCHashTable[index].get(i))) {
-                    System.out.println("Word: " + w + ", Hash Value: " + hashValue + ", Index: " + index);
+                    System.out.println(
+                            "[Separate Chaining] Word: " + w + ", Hash Value: " + hashValue + ", Index: " + index);
                     notFound = false;
-                }
-                else {
+                } else {
                     i++;
                     if (SCHashTable[index].size() <= i) {
                         System.out.println("Word does not exist.");
                         break;
                     }
                 }
-            }
-            else {
+            } else {
                 System.out.println("Word does not exist.");
                 break;
             }
