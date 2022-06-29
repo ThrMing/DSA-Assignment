@@ -80,6 +80,7 @@ public class BSTtest {
                 }
             }
 
+            // Input options for tree traversals
             else if (userInput == 2) {
                 tree.preorderTraversal();
             }
@@ -104,11 +105,11 @@ public class BSTtest {
             else {
                 System.out.println("Input 1 to 6 only");
             }
-
         } while (userInput != 6);
         input.close();
     }
 
+    // Prints out asterisk line for user interface
     public static void asterisk() {
         for (int i = 0; i < 50; i++) {
             System.out.print("*");
