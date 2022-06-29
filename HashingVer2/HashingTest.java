@@ -48,8 +48,11 @@ public class HashingTest {
                     if (count < size) {
                         if (!(value.equals("0"))) {
                             linearHash.insertLinearProb(value);
+                            System.out.println();
                             doubleHash.insertDoubleHash(value);
+                            System.out.println();
                             sepchain.insertSepChain(value);
+                            System.out.println();
                             count++;
                             if (count == size) {
                                 System.out.println("Can't insert anymore because table is full");
@@ -69,8 +72,12 @@ public class HashingTest {
                     value = input.next();
                     if (!(value.equals("0"))) {
                         linearHash.searchLinearProb(value);
+                        System.out.println();
                         doubleHash.searchDoubleHash(value);
+                        System.out.println();
                         sepchain.searchSepChain(value);
+                        System.out.println();
+
                     }
                 } while (!(value.equals("0")));
 

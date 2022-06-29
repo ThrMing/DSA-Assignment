@@ -53,7 +53,9 @@ public class Hashing {
             if (LinearProbTable[index] == null) {
                 LinearProbTable[index] = w;
                 notStored = false;
+                System.out.println("[Linear Probing] Inserted at index " + index);
             } else {
+                System.out.println("[Linear Probing] Collision happens at index " + index);
                 index++;
             }
         }
@@ -99,7 +101,10 @@ public class Hashing {
             if (DoubleHashTable[index] == null) {
                 DoubleHashTable[index] = w;
                 notStored = false;
+                System.out.println("[Double Hashing] Inserted at index " + index);
+
             } else {
+                System.out.println("[Double Hashing] Collision happens at index " + index);
                 index += stepSize;
                 index %= arrSize;
             }
@@ -139,8 +144,12 @@ public class Hashing {
         if (SCHashTable[index] == null) {
             SCHashTable[index] = new LinkedList<String>();
             SCHashTable[index].add(w);
+            System.out.println("[SeparateChaining] Inserted at index " + index);
         } else {
             SCHashTable[index].add(w);
+            System.out.println("[Separate Chaining] Collision happens at index " + index);
+            System.out.println("[Separate Chaining] Inserted in linked list at index " + index);
+
         }
     }
 
