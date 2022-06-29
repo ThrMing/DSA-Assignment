@@ -107,10 +107,11 @@ public class HashingTest {
                         case 1:
                             linearHash.printLinearTable();
                             break;
+
                         case 2:
                             doubleHash.printDoubleTable();
-
                             break;
+
                         case 3:
                             sepchain.printSeparateTable();
                             break;
