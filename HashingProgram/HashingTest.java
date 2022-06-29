@@ -11,8 +11,12 @@ public class HashingTest {
         int userInput, size;
         Scanner input = new Scanner(System.in);
         int count = 0;
+
+        // Prompt user to enter size of hash table
         System.out.print("Enter the size of the hash table ( > 10):  ");
         size = input.nextInt();
+
+        // Checks if input is more than 10, else repeat
         while (size <= 10) {
             if (size <= 10) {
                 System.out.println("Insert any value more than 10");
@@ -20,6 +24,8 @@ public class HashingTest {
                 size = input.nextInt();
             }
         }
+
+        // Initializing hash tables for all data structures 
         Hashing linearHash = new Hashing(size, DataStructures.LinearProb);
         Hashing doubleHash = new Hashing(size, DataStructures.DoubleHash);
         Hashing sepchain = new Hashing(size, DataStructures.SepChain);
@@ -53,6 +59,8 @@ public class HashingTest {
                             sepchain.insertSepChain(value);
                             System.out.println();
                             count++;
+
+                            // User is not allowed to insert value when table is full
                             if (count == size) {
                                 System.out.println("Can't insert anymore because table is full");
                             }

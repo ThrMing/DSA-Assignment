@@ -10,6 +10,7 @@ public class Hashing {
 
     // Constructor
     public Hashing(int n, DataStructures ds) {
+        // Create hash tables for each data structure
         arrSize = n;
         switch (ds) {
             case LinearProb:
@@ -22,29 +23,17 @@ public class Hashing {
                 SCHashTable = new LinkedList[n];
                 break;
         }
-    }
-
-    // Get prime number to calculate step size for double hashing
-    public int getPrime() {
-        for (int i = arrSize - 1; i >= 1; i--) {
-            int f = 0;
-            for (int j = 2; j <= (int) Math.sqrt(i); j++) {
-                if (i % j == 0) {
-                    f++;
-                }
-            }
-            if (f == 0) {
-                return i;
-            }
-        }
-        return 3;
-    }
+    }    
 
     // Insertion for Linear Probing data structure
     public void insertLinearProb(String w) {
         int hashValue = HashFunction(w);
         int index = hashValue % arrSize;
         boolean notStored = true;
+
+        // Loop through to each index of the hash table to check if it is empty
+        // If position is empty, insert value
+        // If collision happens, go to the next position
         while (notStored) {
             if (index == (arrSize - 1) && LinearProbTable[index] != null) {
                 index = 0;
@@ -72,6 +61,7 @@ public class Hashing {
             }
         }
 
+        // If value does not exist
         if (indexes[0] == 0 && indexes[1] == 0) {
             System.out.println("\n[Linear Probing] Value does not exist.");
         } else {
@@ -86,6 +76,22 @@ public class Hashing {
         }
     }
 
+    // Get prime number to calculate step size for double hashing
+    public int getPrime() {
+        for (int i = arrSize - 1; i >= 1; i--) {
+            int f = 0;
+            for (int j = 2; j <= (int) Math.sqrt(i); j++) {
+                if (i % j == 0) {
+                    f++;
+                }
+            }
+            if (f == 0) {
+                return i;
+            }
+        }
+        return 3;
+    }
+
     // Insertion for Double Hashing data structure
     public void insertDoubleHash(String w) {
         int hashValue = HashFunction(w);
@@ -93,6 +99,10 @@ public class Hashing {
         int index = hashValue % arrSize;
         int stepSize = constant - (hashValue % constant);
         boolean notStored = true;
+
+        // Loop through to each index of the hash table to check if it is empty
+        // If position is empty, insert value
+        // If collision happens, jump several positions based on stepSize variable
         while (notStored) {
             if (index == (arrSize - 1) && DoubleHashTable[index] != null) {
                 index = 0;
@@ -122,6 +132,7 @@ public class Hashing {
             }
         }
 
+        // If value does not exist 
         if (indexes[0] == 0 && indexes[1] == 0) {
             System.out.println("\n[Double Hashing] Value does not exist.");
         } else {
@@ -140,6 +151,10 @@ public class Hashing {
     public void insertSepChain(String w) {
         int hashValue = HashFunction(w);
         int index = hashValue % arrSize;
+
+        // Loop through to each index of the hash table to check if it is empty
+        // If position is empty, create another linked list within and insert value
+        // If collision happens, insert value to the list within the linked list
         if (SCHashTable[index] == null) {
             SCHashTable[index] = new LinkedList<String>();
             SCHashTable[index].add(w);
@@ -167,6 +182,7 @@ public class Hashing {
             }
         }
 
+        // If value does not exist
         if (indexes[0] == 0) {
             System.out.println("\n[Separate Chaining] Value does not exist.");
         } else {
@@ -197,6 +213,7 @@ public class Hashing {
         return hashValue;
     }
 
+    // This method prints the hash table for open addressing; Linear Probing data structure
     public void printLinearTable() {
         System.out.println("\nHash Table{Linear}: ");
         for (int i = 0; i < LinearProbTable.length; i++) {
@@ -226,6 +243,7 @@ public class Hashing {
         System.out.println();
     }
 
+    // This method prints the hash table for open addressing; Double hashing data structure
     public void printDoubleTable() {
         System.out.println("\nHash Table{Double}: ");
         for (int i = 0; i < DoubleHashTable.length; i++) {
@@ -254,6 +272,7 @@ public class Hashing {
         System.out.println();
     }
 
+    // This method prints the hash table for Separate Chaining data structure
     public void printSeparateTable() {
         System.out.println("\nHash Table{Separate}: ");
         for (int i = 0; i < SCHashTable.length; i++) {
@@ -282,6 +301,7 @@ public class Hashing {
         System.out.println();
     }
 
+    // Clears all element in all hash tables for linear probing 
     public void clearLinearTable() {
         for (int i = 0; i < LinearProbTable.length; i++) {
             LinearProbTable[i] = null;
@@ -291,6 +311,7 @@ public class Hashing {
 
     }
 
+    // Clears all element in all hash tables for double hashing
     public void clearDoubleTable() {
         for (int i = 0; i < DoubleHashTable.length; i++) {
             DoubleHashTable[i] = null;
@@ -299,6 +320,7 @@ public class Hashing {
 
     }
 
+    // Clears all element in all hash tables for separate chaining
     public void clearSeparateTable() {
         for (int i = 0; i < SCHashTable.length; i++) {
             SCHashTable[i] = null;
