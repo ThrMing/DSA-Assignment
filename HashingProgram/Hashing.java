@@ -43,7 +43,7 @@ public class Hashing {
                 notStored = false;
                 System.out.println("[Linear Probing] Inserted at index " + index);
             } else {
-                System.out.println("\n[Linear Probing] Collision happens at index " + index);
+                System.out.println("[Linear Probing] Collision happens at index " + index);
                 index++;
             }
         }
@@ -65,7 +65,7 @@ public class Hashing {
         if (indexes[0] == 0 && indexes[1] == 0) {
             System.out.println("\n[Linear Probing] Value does not exist.");
         } else {
-            System.out.print("\n[Linear Probing] Value: " + w + ", Indexes: ");
+            System.out.print("\n[Linear Probing] Value: " + w + ", Index: ");
             for (int i = 0; i < indexes.length; i++) {
                 System.out.print(indexes[i] + ", ");
                 if (indexes[i + 1] == 0) {
@@ -136,7 +136,7 @@ public class Hashing {
         if (indexes[0] == 0 && indexes[1] == 0) {
             System.out.println("\n[Double Hashing] Value does not exist.");
         } else {
-            System.out.print("\n[Double Hashing] Value: " + w + ", Indexes: ");
+            System.out.print("\n[Double Hashing] Value: " + w + ", Index: ");
             for (int i = 0; i < indexes.length; i++) {
                 System.out.print(indexes[i] + ", ");
                 if (indexes[i + 1] == 0) {
@@ -159,11 +159,12 @@ public class Hashing {
             SCHashTable[index] = new LinkedList<String>();
             SCHashTable[index].add(w);
             System.out.println("[SeparateChaining] Inserted at index " + index);
+            System.out.println("\n***************************************************************\n");
         } else {
             SCHashTable[index].add(w);
             System.out.println("\n[Separate Chaining] Collision happens at index " + index);
-            System.out.println("[Separate Chaining] Inserted in linked list at index " + index);
-
+            System.out.println("[Separate Chaining] Inserted into linked list at index " + index);
+            System.out.println("\n***************************************************************\n");
         }
     }
 
@@ -215,7 +216,7 @@ public class Hashing {
 
     // This method prints the hash table for open addressing; Linear Probing data structure
     public void printLinearTable() {
-        System.out.println("\nHash Table{Linear}: ");
+        System.out.println("\nHash Table - Linear Probing: ");
         for (int i = 0; i < LinearProbTable.length; i++) {
             if (LinearProbTable[i] != null) {
                 if (i < 10) {
@@ -245,7 +246,7 @@ public class Hashing {
 
     // This method prints the hash table for open addressing; Double hashing data structure
     public void printDoubleTable() {
-        System.out.println("\nHash Table{Double}: ");
+        System.out.println("\nHash Table - Double Hashing: ");
         for (int i = 0; i < DoubleHashTable.length; i++) {
             if (DoubleHashTable[i] != null) {
                 if (i < 10) {
@@ -274,7 +275,7 @@ public class Hashing {
 
     // This method prints the hash table for Separate Chaining data structure
     public void printSeparateTable() {
-        System.out.println("\nHash Table{Separate}: ");
+        System.out.println("\nHash Table - Separate Chaining: ");
         for (int i = 0; i < SCHashTable.length; i++) {
             if (SCHashTable[i] != null) {
                 if (i < 10) {
@@ -307,8 +308,8 @@ public class Hashing {
             LinearProbTable[i] = null;
 
         }
-        System.out.println("\nLinear Table Clear Successfully");
-
+        System.out.println("\n***************************************************************\n");
+        System.out.println("Linear Probing hash table successfully cleared.");
     }
 
     // Clears all element in all hash tables for double hashing
@@ -316,8 +317,7 @@ public class Hashing {
         for (int i = 0; i < DoubleHashTable.length; i++) {
             DoubleHashTable[i] = null;
         }
-        System.out.println("Double Table Clear Successfully");
-
+        System.out.println("Double Hashing hash table successfully cleared.");
     }
 
     // Clears all element in all hash tables for separate chaining
@@ -325,8 +325,8 @@ public class Hashing {
         for (int i = 0; i < SCHashTable.length; i++) {
             SCHashTable[i] = null;
         }
-        System.out.println("Separate Table Clear Successfully");
-
+        System.out.println("Separate Chaining hash table successfully cleared.");
+        System.out.println("\n***************************************************************\n");
     }
 
 }

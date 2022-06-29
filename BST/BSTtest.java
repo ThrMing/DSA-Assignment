@@ -37,7 +37,7 @@ public class BSTtest {
                     // Insert
                     if (userInput == 1) {
                         do {
-                            System.out.print("Insert value(0 to exit): ");
+                            System.out.print("Insert an integer value (0 to exit): ");
                             value = input.nextInt();
                             if (value != 0) {
                                 tree.insertNode(value);
@@ -78,7 +78,7 @@ public class BSTtest {
                     }
 
                     else {
-                        System.out.println("input 1 to 4 only");
+                        System.out.println("Error! Please enter an option displayed onscreen!");
                     }
                 }
             }
@@ -102,11 +102,11 @@ public class BSTtest {
             }
 
             else if (userInput == 6) {
-                System.out.println("Exiting");
+                System.out.println("Thank you for using the program. Exiting...");
             }
 
             else {
-                System.out.println("Input 1 to 6 only");
+                System.out.println("Error! Please enter an option displayed onscreen!");
             }
         } while (userInput != 6);
         input.close();

@@ -48,8 +48,9 @@ public class HashingTest {
             // Insertion
             if (userInput == 1) {
                 do {
-                    System.out.print("Insert(0 to exit) : ");
+                    System.out.print("Insert integer value (0 to exit) : ");
                     value = input.next();
+                    System.out.println("\n***************************************************************\n");
                     if (count < size) {
                         if (!(value.equals("0"))) {
                             linearHash.insertLinearProb(value);
@@ -75,7 +76,7 @@ public class HashingTest {
             else if (userInput == 2) {
 
                 do {
-                    System.out.print("Search(0 to exit) : ");
+                    System.out.print("Search (0 to exit): ");
                     value = input.next();
                     if (!(value.equals("0"))) {
                         linearHash.searchLinearProb(value);
@@ -108,6 +109,7 @@ public class HashingTest {
                     System.out.println("2. Double Hashing");
                     System.out.println("3. Separate Chaining");
                     System.out.println("4. Exit");
+                    System.out.print("Enter a view: ");
                     userInput = input.nextInt();
 
                     switch (userInput) {
@@ -127,22 +129,21 @@ public class HashingTest {
                             break;
 
                         default:
-                            System.out.println("Wrong Entry");
+                            System.out.println("Unaccepted input! Please select an option displayed onscreen!");
                             break;
                     }
                 } while (userInput != 4);
             }
 
             else if (userInput == 5) {
-                System.out.println("Goodbye");
+                System.out.println("Thank you for using the program!");
             }
 
             else {
-                System.out.println("Wrong Entry");
+                System.out.println("Unaccepted input! Please select an option displayed onscreen!");
             }
 
         } while (userInput != 5);
         input.close();
     }
-
 }
