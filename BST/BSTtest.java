@@ -63,8 +63,11 @@ public class BSTtest {
                         do {
                             System.out.print("Search value(0 to exit): ");
                             value = input.nextInt();
-                            if (value != 0) {
-                                System.out.println(tree.searchNode(value));
+                            if (value != 0 && tree.searchNode(value)){
+                                System.out.println("\nThe value exists in the tree.\nTo view the location of the value, return to the main menu and select the function 'Display Tree.'\n");
+                            }
+                            else if (value != 0 && !tree.searchNode(value)){
+                                System.out.println("\nThe value does not exist in the tree.\n");
                             }
                         } while (value != 0);
 

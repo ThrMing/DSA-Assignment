@@ -85,6 +85,7 @@ public class BinaryTree {
 
     // Preorder Traversal
     public void preorderTraversal() {
+        System.out.print("Preorder: ");
         preorderHelper(root);
     }
 
@@ -100,6 +101,7 @@ public class BinaryTree {
 
     // Inorder Traversal
     public void inorderTraversal() {
+        System.out.print("Inorder: ");
         inorderHelper(root);
     }
 
@@ -115,6 +117,7 @@ public class BinaryTree {
 
     // Postorder Traversal
     public void postorderTraversal() {
+        System.out.print("Postorder: ");
         postorderHelper(root);
     }
 
