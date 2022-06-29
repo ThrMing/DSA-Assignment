@@ -1,6 +1,6 @@
-package Hashing;
+package HashingProgram;
 import java.util.Scanner;
-import Hashing.Hashing.DataStructures;
+import HashingProgram.Hashing.DataStructures;
 
 /** Class HashTableTest **/
 public class HashingTest {
@@ -11,12 +11,12 @@ public class HashingTest {
         int userInput, size;
         Scanner input = new Scanner(System.in);
         int count = 0;
-        System.out.print("Enter the size of the hash table( >= 10):  ");
+        System.out.print("Enter the size of the hash table ( > 10):  ");
         size = input.nextInt();
         while (size < 10) {
             if (size < 10) {
                 System.out.println("Insert any value more than 10");
-                System.out.print("Enter the size of the hash table( >= 10):  ");
+                System.out.print("Enter the size of the hash table ( > 10):  ");
                 size = input.nextInt();
             }
         }

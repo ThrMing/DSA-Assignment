@@ -31,6 +31,7 @@ public class BSTtest {
                     System.out.println("2. Delete");
                     System.out.println("3. Search");
                     System.out.println("4. Exit");
+                    System.out.print("Select an option: ");
                     userInput = input.nextInt();
 
                     // Insert
