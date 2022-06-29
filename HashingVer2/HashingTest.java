@@ -27,7 +27,7 @@ public class HashingTest {
 
         /** Perform HashTable operations **/
         do {
-            System.out.println("***********************************");
+            System.out.println("\n***********************************");
             System.out.println("\tHash Table Operations");
             System.out.println("***********************************");
             System.out.println("1. Insert");

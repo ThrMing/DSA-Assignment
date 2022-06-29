@@ -55,7 +55,7 @@ public class Hashing {
                 notStored = false;
                 System.out.println("[Linear Probing] Inserted at index " + index);
             } else {
-                System.out.println("[Linear Probing] Collision happens at index " + index);
+                System.out.println("\n[Linear Probing] Collision happens at index " + index);
                 index++;
             }
         }
@@ -74,9 +74,9 @@ public class Hashing {
         }
 
         if (indexes[0] == 0 && indexes[1] == 0) {
-            System.out.println("[Linear Probing] Value does not exist.");
+            System.out.println("\n[Linear Probing] Value does not exist.");
         } else {
-            System.out.print("[Linear Probing] Value: " + w + ", Indexes: ");
+            System.out.print("\n[Linear Probing] Value: " + w + ", Indexes: ");
             for (int i = 0; i < indexes.length; i++) {
                 System.out.print(indexes[i] + ", ");
                 if (indexes[i + 1] == 0) {
@@ -104,7 +104,7 @@ public class Hashing {
                 System.out.println("[Double Hashing] Inserted at index " + index);
 
             } else {
-                System.out.println("[Double Hashing] Collision happens at index " + index);
+                System.out.println("\n[Double Hashing] Collision happens at index " + index);
                 index += stepSize;
                 index %= arrSize;
             }
@@ -124,9 +124,9 @@ public class Hashing {
         }
 
         if (indexes[0] == 0 && indexes[1] == 0) {
-            System.out.println("[Double Hashing] Value does not exist.");
+            System.out.println("\n[Double Hashing] Value does not exist.");
         } else {
-            System.out.print("[Double Hashing] Value: " + w + ", Indexes: ");
+            System.out.print("\n[Double Hashing] Value: " + w + ", Indexes: ");
             for (int i = 0; i < indexes.length; i++) {
                 System.out.print(indexes[i] + ", ");
                 if (indexes[i + 1] == 0) {
@@ -147,7 +147,7 @@ public class Hashing {
             System.out.println("[SeparateChaining] Inserted at index " + index);
         } else {
             SCHashTable[index].add(w);
-            System.out.println("[Separate Chaining] Collision happens at index " + index);
+            System.out.println("\n[Separate Chaining] Collision happens at index " + index);
             System.out.println("[Separate Chaining] Inserted in linked list at index " + index);
 
         }
@@ -169,9 +169,9 @@ public class Hashing {
         }
 
         if (indexes[0] == 0) {
-            System.out.println("[Separate Chaining] Value does not exist.");
+            System.out.println("\n[Separate Chaining] Value does not exist.");
         } else {
-            System.out.print("[Separate Chaining] Value: " + w + ", Index: ");
+            System.out.print("\n[Separate Chaining] Value: " + w + ", Index: ");
             for (int i = 0; i < indexes.length; i++) {
                 if (indexes[i] == 0) {
                     break;
@@ -199,7 +199,7 @@ public class Hashing {
     }
 
     public void printLinearTable() {
-        System.out.println("Hash Table{Linear}: ");
+        System.out.println("\nHash Table{Linear}: ");
         for (int i = 0; i < LinearProbTable.length; i++) {
             if (LinearProbTable[i] != null) {
                 if (i < 10) {
@@ -228,7 +228,7 @@ public class Hashing {
     }
 
     public void printDoubleTable() {
-        System.out.println("Hash Table{Double}: ");
+        System.out.println("\nHash Table{Double}: ");
         for (int i = 0; i < DoubleHashTable.length; i++) {
             if (DoubleHashTable[i] != null) {
                 if (i < 10) {
@@ -256,7 +256,7 @@ public class Hashing {
     }
 
     public void printSeparateTable() {
-        System.out.println("Hash Table{Separate}: ");
+        System.out.println("\nHash Table{Separate}: ");
         for (int i = 0; i < SCHashTable.length; i++) {
             if (SCHashTable[i] != null) {
                 if (i < 10) {
@@ -288,7 +288,7 @@ public class Hashing {
             LinearProbTable[i] = null;
 
         }
-        System.out.println("Linear Table Clear Successfully");
+        System.out.println("\nLinear Table Clear Successfully");
 
     }
 
