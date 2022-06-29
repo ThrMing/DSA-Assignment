@@ -1,5 +1,4 @@
-package HashingVer2;
-
+package Hashing;
 import java.util.LinkedList;
 
 public class Hashing {

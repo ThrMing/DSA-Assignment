@@ -1,7 +1,6 @@
-package HashingVer2;
-
+package Hashing;
 import java.util.Scanner;
-import HashingVer2.Hashing.DataStructures;
+import Hashing.Hashing.DataStructures;
 
 /** Class HashTableTest **/
 public class HashingTest {
