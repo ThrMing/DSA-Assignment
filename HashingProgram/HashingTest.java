@@ -13,8 +13,8 @@ public class HashingTest {
         int count = 0;
         System.out.print("Enter the size of the hash table ( > 10):  ");
         size = input.nextInt();
-        while (size < 10) {
-            if (size < 10) {
+        while (size <= 10) {
+            if (size <= 10) {
                 System.out.println("Insert any value more than 10");
                 System.out.print("Enter the size of the hash table ( > 10):  ");
                 size = input.nextInt();
