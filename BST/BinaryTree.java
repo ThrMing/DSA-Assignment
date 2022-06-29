@@ -53,6 +53,7 @@ public class BinaryTree {
         }
     }
 
+    // This method creates the display for the tree in the terminal
     public void displayer(Node node, String indent, boolean last) {
 
         if (root == null) {
@@ -76,6 +77,7 @@ public class BinaryTree {
 
     }
 
+    // This method prints the tree in the terminal 
     public void print_tree() {
         // calling displayer from TreeNode
         displayer(root, "", true);

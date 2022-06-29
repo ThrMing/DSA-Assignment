@@ -12,7 +12,7 @@ public class BSTtest {
             asterisk();
             System.out.println("\t\tBinary Search Tree");
             asterisk();
-            System.out.println("1. Play");
+            System.out.println("1. Insert data");
             System.out.println("2. Preorder");
             System.out.println("3. Inorder");
             System.out.println("4. Postorder");
