@@ -1,4 +1,5 @@
 package HashingVer2;
+
 import java.util.LinkedList;
 
 public class Hashing {
@@ -8,7 +9,7 @@ public class Hashing {
     int arrSize;
     int count = 0;
 
-    //Constructor
+    // Constructor
     public Hashing(int n, DataStructures ds) {
         arrSize = n;
         switch (ds) {
@@ -46,14 +47,13 @@ public class Hashing {
         int index = hashValue % arrSize;
         boolean notStored = true;
         while (notStored) {
-            if (index == (arrSize-1) && LinearProbTable[index] != null) {
+            if (index == (arrSize - 1) && LinearProbTable[index] != null) {
                 index = 0;
             }
             if (LinearProbTable[index] == null) {
                 LinearProbTable[index] = w;
                 notStored = false;
-            } 
-            else {
+            } else {
                 index++;
             }
         }
@@ -77,9 +77,9 @@ public class Hashing {
             System.out.print("[Linear Probing] Value: " + w + ", Indexes: ");
             for (int i = 0; i < indexes.length; i++) {
                 System.out.print(indexes[i] + ", ");
-                if (indexes[i+1] == 0) {
+                if (indexes[i + 1] == 0) {
                     break;
-                } 
+                }
             }
             System.out.println("");
         }
@@ -93,7 +93,7 @@ public class Hashing {
         int stepSize = constant - (hashValue % constant);
         boolean notStored = true;
         while (notStored) {
-            if (index == (arrSize-1) && DoubleHashTable[index] != null) {
+            if (index == (arrSize - 1) && DoubleHashTable[index] != null) {
                 index = 0;
             }
             if (DoubleHashTable[index] == null) {
@@ -124,9 +124,9 @@ public class Hashing {
             System.out.print("[Double Hashing] Value: " + w + ", Indexes: ");
             for (int i = 0; i < indexes.length; i++) {
                 System.out.print(indexes[i] + ", ");
-                if (indexes[i+1] == 0) {
+                if (indexes[i + 1] == 0) {
                     break;
-                } 
+                }
             }
             System.out.println("");
         }
@@ -152,7 +152,7 @@ public class Hashing {
             if (SCHashTable[x] == null) {
                 continue;
             }
-            for (int y = 0; y < SCHashTable[x].size();y++) {
+            for (int y = 0; y < SCHashTable[x].size(); y++) {
                 if (w.equals(SCHashTable[x].get(y))) {
                     indexes[0] = x;
                 }

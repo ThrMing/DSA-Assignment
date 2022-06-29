@@ -35,8 +35,10 @@ public class HashingTest {
             System.out.println("3. Clear");
             System.out.println("4. Display");
             System.out.println("5. Exit");
+            System.out.println("-----------------------------------");
             System.out.print("Enter your command:  ");
             userInput = input.nextInt();
+            System.out.println();
 
             // Insertion
             if (userInput == 1) {
