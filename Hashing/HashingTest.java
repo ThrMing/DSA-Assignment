@@ -1,4 +1,5 @@
 package Hashing;
+
 import java.util.Scanner;
 import Hashing.Hashing.DataStructures;
 
@@ -11,12 +12,12 @@ public class HashingTest {
         int userInput, size;
         Scanner input = new Scanner(System.in);
         int count = 0;
-        System.out.print("Enter the size of the hash table( >= 10):  ");
+        System.out.print("Enter the size of the hash table(prime number):  ");
         size = input.nextInt();
-        while (size < 10) {
-            if (size < 10) {
-                System.out.println("Insert any value more than 10");
-                System.out.print("Enter the size of the hash table( >= 10):  ");
+        while ((size % 2 == 0) || (size == 1) || (size == 0)) {
+            if (size % 2 == 0 || size == 1) {
+                System.out.println(size + " is not a prime number");
+                System.out.print("Enter the size of the hash table(prime number):  ");
                 size = input.nextInt();
             }
         }
