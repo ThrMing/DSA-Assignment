@@ -1,7 +1,6 @@
-package HashingVer2;
-
+package Hashing;
 import java.util.Scanner;
-import HashingVer2.Hashing.DataStructures;
+import Hashing.Hashing.DataStructures;
 
 /** Class HashTableTest **/
 public class HashingTest {
@@ -27,7 +26,7 @@ public class HashingTest {
 
         /** Perform HashTable operations **/
         do {
-            System.out.println("***********************************");
+            System.out.println("\n***********************************");
             System.out.println("\tHash Table Operations");
             System.out.println("***********************************");
             System.out.println("1. Insert");
