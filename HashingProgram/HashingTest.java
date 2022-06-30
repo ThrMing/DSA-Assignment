@@ -14,7 +14,7 @@ public class HashingTest {
         int count = 0;
 
         // Prompt user to enter size of hash table
-        System.out.print("Enter the size of the hash table ( > 10):  ");
+        System.out.print("Enter the size of the hash table (prime number):  ");
         size = input.nextInt();
 
         // Checks if input is more than 10, else repeat
