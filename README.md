@@ -1,4 +1,4 @@
-# This file contains instructions on how to run the Binary Search Tree and Hashing demo codes bundled in this code package as part of teh CSC2103 Coursework.
+# This file contains instructions on how to run the Binary Search Tree and Hashing demo codes bundled in this code package as part of the CSC2103 Coursework.
 
 ### Before running any program, unzip all Java files and either open the containing folder of the unzipped Java files in an IDE or compile and run it in a terminal.
 
@@ -8,7 +8,7 @@
 
 ## Both programs display clear instructions, guide and error messages for an easy experience in using the programs.
 
-## ======================================================
+## =================================================
 
 # Binary Search Tree program:
 - To use the program, compile the folder named **BST** and run or execute the file **BSTtest.java**
@@ -27,7 +27,7 @@
 6. To display the full tree, enter "5".
 7. To exit the program, enter "6".
 
-## ======================================================
+## =================================================
 
 # Hashing program:
 - To use the program, compile the folder named **HashingProgram** and run or execute the file **HashingTest.java**
